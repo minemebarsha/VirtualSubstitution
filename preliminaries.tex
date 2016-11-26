@@ -18,7 +18,7 @@ A square root expression(SRE) has the form,
 $$\frac{p+q\sqrt{r}}{s}\qquad  \text{, where } p,q,r,s \in P $$
 and the set of all square root can be expressed by,
 $$SqrtEx := \{\frac{p+q\sqrt{r}}{s} \lvert  \text{ } p,q,r,s \in P\}$$
-
+\begin{mdframed}[hidealllines=true,backgroundcolor=blue!20,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt]
 \begin{definition}[Polynomial]
 	\label{def:polynomial}
 	A polynomial is a mathematical expression consisting of a sum of terms, each term including a variable or variables raised to a power and multiplied by a coefficient.
@@ -29,7 +29,7 @@ $$SqrtEx := \{\frac{p+q\sqrt{r}}{s} \lvert  \text{ } p,q,r,s \in P\}$$
 	The following expression is a quantifier-free real-arithmetic formula where a, b, c are the polynomials and the set of all polynomials in $\varphi^\mathbb{R}$ is $P=\{a, b, c\}$,
 	$$\varphi^\mathbb{R} = (a\leq 0\vee b = 0) \wedge (b<0\vee c\neq 0) $$
 \end{definition}
-
+\end{mdframed}
 Let, $p(x) = ax^{2} + bx + c = 0$ is a quadratic equation of variable $x$ where $a, b, c \in P$ and $x\notin a\cup b\cup c $. Now, the solution formula for $x$ in $p(x) = a_{d}x^{d} + a_{d-1}x^{d-1} + \ldots + a_{0}x^{0}$ considers the following four cases,
 \begin{alignat}{2}
 	&x_{0} = -\frac{c}{b}\qquad                            
@@ -44,8 +44,8 @@ Let, $p(x) = ax^{2} + bx + c = 0$ is a quadratic equation of variable $x$ where 
 
 Note that, $x_{0}$ is a real zero of $p(x)$ for linear equation, for quadratic equation $x_{1}$ and $x_{2}$ are two real zeros of $p(x)$. $x_{4}$ is any real number which is also a solution for $x$.
 
-Now, we can express the symbolic zero of x in a polynomial, which is quadratic in x by a SRE $\frac{p+q\sqrt{r}}{s}$ as given in table 2.1.
 
+Now, we can express the symbolic zero of x in a polynomial, which is quadratic in x by a SRE $\frac{p+q\sqrt{r}}{s}$ as given in table 2.1.\newline
 \textbf{Remark} We can construct TCs by the comparison with SRE (table 2.1) and also considering that TCs can be supplemented by an infinitesimal $\varepsilon$.
 
 \begin{table}[htb]
@@ -68,3 +68,5 @@ Now, we can express the symbolic zero of x in a polynomial, which is quadratic i
 		\end{tabular}
 	\end{center}
 \end{table}
+
+
