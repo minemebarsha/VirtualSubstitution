@@ -54,7 +54,10 @@ First we will eliminate $x$ from $\varphi^\mathbb{R}$. To construct the test can
 		where $p, q, r$ and $s$ are polynomials and $t^{\prime}$ is a test candidate where $\epsilon \notin t^{\prime}$.
 	\end{definition}
 \end{mdframed}
-By eliminating $x$ first we get the following test candidates,
+
+Each side condition of the test candidates confirms that each test candidate exists. The side condition of the test candidate $-\infty$ is valid because, it does not relate to a zero.
+
+To eliminate $x$ first we get the following test candidates,
 \begin{alignat}{2}
 	&x_{0} = -y\qquad                            
 	&& \text{, if $ y = 0 \wedge 1\neq 0$} \\
@@ -65,4 +68,40 @@ By eliminating $x$ first we get the following test candidates,
 	&x_{3} = -\infty\qquad      
 	&& \text{, if $ y = 0 \wedge 1 = 0$}
 \end{alignat}
-Here, $C_{x_{3}}$ is invalid. So, $x_{3}$ can not be a real zero of $p_{1}$
+Here, $C_{x_{3}}$ is invalid. So, $x_{3}$ does not exist for $p_{1}$.
+
+Now, we will put all the test candidates of $x$ in $\varphi^\mathbb{R}$ and we will get following three quantifier free and $x$ free real-arithmetic formulas,
+\begin{alignat}{2}
+	&\varphi_{1} = \varphi^{\mathbb{R}}(x_{0}\backslash\backslash x) = (y^{3} + 2y = 0) \wedge (y^{2} - 2 < 0) \wedge (y = 0) \wedge (1 \neq 0) \qquad      
+	 \\
+	&\varphi_{2} = \varphi^{\mathbb{R}}(x_{1}\backslash\backslash x) = (p_{3} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
+	 \\
+	&\varphi_{3} = \varphi^{\mathbb{R}}(x_{2}\backslash\backslash x) = (p_{4} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
+	&&
+\end{alignat}
+where, 
+$$p_{3} = (\underbrace{(\frac{-1 + \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 + \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero}} = 0 )$$ 
+and 
+$$p_{4} = (\underbrace{(\frac{-1 - \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 - \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero}} = 0 )$$
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+	\centering
+	\caption{Test Candidates for $y$ with side conditions}
+	\label{my-label}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		& Test Candidate & Side Condition & \begin{tabular}[c]{@{}c@{}}Validation\\ of\\ Side Condition\end{tabular} \\ \hline
+		\multirow{3}{*}{$\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$} & $\sqrt{2}+\epsilon$ & $1\neq 0 \wedge 8 \geq 0$ & \checkmark \\ \cline{2-4} 
+		& $-\sqrt{2}+\epsilon$ & $1\neq 0 \wedge 8 \geq 0$ & \checkmark \\ \cline{2-4} 
+		& $-\infty$ & true & \checkmark \\ \hline
+		\multirow{5}{*}{$\varphi_{2}$,$\varphi_{3}$} & $2+\epsilon$ & $1=0 \wedge 0\neq 0$ & \textbf{x} \\ \cline{2-4} 
+		& $0+\epsilon$ & $0\neq 0 \wedge -2\neq 0$ & \textbf{x} \\ \cline{2-4} 
+		& $\frac{1}{2}$ & $-4\neq 0 \wedge 16\geq 0$ & \checkmark \\ \cline{2-4} 
+		& $-\frac{1}{2}$ & $-4\neq 0 \wedge 16\geq 0$ & \checkmark \\ \cline{2-4}
+		& $\frac{-1}{0}\}\text{invalid value}$ & - & - \\ \hline
+	\end{tabular}
+\end{table}
+To eliminate $y$ from $\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$ we construct the test candidates for $y$ given in Table 3.1 where we marked the valid and invalid side conditions.
