@@ -1,0 +1,70 @@
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\section{Preliminaries}
+\label{sec:preliminaries}
+\subsection{Virtual Substitution}
+In 1993, the concept of Virtual Substitution (VS) was first introduced. Initially it was a procedure to eliminate quantifier/variable elimination for linear real arithmetic formulas. Further, VS became a procedure of quantifier elimination for non-linear arithmetic formulas. But one of the most significant limitation of VS is that it cannot eliminate quantified variables whose degree is higher than 2.
+
+VS is a procedure to eliminate a quantified variable. Let $\varphi^\mathbb{R}$ is a quantifier-free real-arithmetic formula where $x\in p(x)$ and $p(x) \sim 0, \sim \in \{=,<,>,\leq,\geq,\neq\}$ is a constraint of   $\varphi^\mathbb{R}$. Degree of x in $p(x)$ must be $\leq$ 2. Then, after quantifier elimination by VS we get the following equivalence,
+$$ \exists x. \varphi^\mathbb{R} \Longleftrightarrow \bigvee\limits_{t\in T(x,\varphi^\mathbb{R})}  (\varphi^\mathbb{R} [t\backslash\backslash x] \wedge C_t)$$
+
+where T is a finite set of all possible test candidates for x and $C_t$ is a side condition of $t \in T$.
+\subsection{Test Candidates and Side Condition}
+To solve non-linear equalities with VS first we have to choose a variable, $x\in p(x)$ to eliminate and then compute all possible test candidates(TCs). $\varphi^\mathbb{R}$ is satisfied if there is a test candidate (TC) $t\in T$ such that $\varphi^\mathbb{R} [t\backslash\backslash x] = p_1[t\backslash\backslash x] \wedge \cdots p_n[t\backslash\backslash x] \wedge C_t$ is satisfiable.
+
+So, the indices of the substitutions are the side conditions of the TC it considers and the labels on the edges to a substitutions are the constraints which provide TC. A detailed explanation of how to construct TCs with side condition is provided in the section 3.1.
+\subsection{Square Root Expression}
+A square root expression(SRE) has the form,
+$$\frac{p+q\sqrt{r}}{s}\qquad  \text{, where } p,q,r,s \in P $$
+and the set of all square root can be expressed by,
+$$SqrtEx := \{\frac{p+q\sqrt{r}}{s} \lvert  \text{ } p,q,r,s \in P\}$$
+
+\begin{definition}[Polynomial]
+	\label{def:polynomial}
+	A polynomial is a mathematical expression consisting of a sum of terms, each term including a variable or variables raised to a power and multiplied by a coefficient.
+	If a polynomial has only one variable, it is called univariate. An univariate of degree $d$ has the following form where $a_{d}\neq 0$,
+	$$ p(x) = a_{d}x^{d} + a_{d-1}x^{d-1} + \ldots + a_{0}x^{0} $$
+	If a polynomial has two or more variables, it is called multivariate. A multivariate (two variables) of degree $d$ has the following form where $a_{dd} \neq 0$,
+	$$ p(x,y) = a_{dd}x^{d}y^{d} + a_{d(d-1)}x^{d}y^{d-1} + a_{(d-1)d}x^{d-1}y^{d} + \ldots + a_{10}x^{1}y^{0} + a_{10}x^{0}y^{1} + a_{00}x^{0}y^{0}  $$
+	The following expression is a quantifier-free real-arithmetic formula where a, b, c are the polynomials and the set of all polynomials in $\varphi^\mathbb{R}$ is $P=\{a, b, c\}$,
+	$$\varphi^\mathbb{R} = (a\leq 0\vee b = 0) \wedge (b<0\vee c\neq 0) $$
+\end{definition}
+
+Let, $p(x) = ax^{2} + bx + c = 0$ is a quadratic equation of variable $x$ where $a, b, c \in P$ and $x\notin a\cup b\cup c $. Now, the solution formula for $x$ in $p(x) = a_{d}x^{d} + a_{d-1}x^{d-1} + \ldots + a_{0}x^{0}$ considers the following four cases,
+\begin{alignat}{2}
+	&x_{0} = -\frac{c}{b}\qquad                            
+	&& \text{, if $ a = 0 \wedge b\neq 0$} \\
+	&x_{1} = \frac{-b + \sqrt{b^{2}-4ac}}{2a}\qquad      
+	&& \text{, if $ a \neq 0 \wedge b^{2}-4ac\geq 0$} \\
+	&x_{2} = \frac{-b - \sqrt{b^{2}-4ac}}{2a}\qquad      
+	&& \text{, if $ a \neq 0 \wedge b^{2}-4ac\geq 0$} \\
+	&x_{3} = -\infty\qquad      
+	&& \text{, if $ a = 0 \wedge b = 0 \wedge c = 0$}
+\end{alignat}
+
+Note that, $x_{0}$ is a real zero of $p(x)$ for linear equation, for quadratic equation $x_{1}$ and $x_{2}$ are two real zeros of $p(x)$. $x_{4}$ is any real number which is also a solution for $x$.
+
+Now, we can express the symbolic zero of x in a polynomial, which is quadratic in x by a SRE $\frac{p+q\sqrt{r}}{s}$ as given in table 2.1.
+
+\textbf{Remark} We can construct TCs by the comparison with SRE (table 2.1) and also considering that TCs can be supplemented by an infinitesimal $\varepsilon$.
+
+\begin{table}[htb]
+	\caption{Comparison with SRE $\frac{p+q\sqrt{r}}{s}$}
+	\label{tab:nameOfTheTable}
+	\bigskip % Insert a vertical space. Also \smallskip or \medskip.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Equation No.& p & q & r & s \\
+			\hline \hline
+			$2.1$ & $-c$ & $0$ & $1$ & $b$ \\
+			\hline
+			$2.2$ & $-b$ & $1$ & $b^{2}-4ac$ & $2a$ \\
+			\hline
+			$2.3$ & $-b$ & $-1$ & $b^{2}-4ac$ & $2a$ \\
+			\hline
+			$2.4$ & $0$ & $1$ & $0$ & $0$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
