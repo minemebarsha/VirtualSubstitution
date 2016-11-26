@@ -1,3 +1,68 @@
 \section{Solving Non-linear Equalities with Virtual Substitution}
 \label{sec:solving non-linear equalities with virtual substitution}
+VS is a restricted but very efficient procedure to solve non-linear equalities. In the paper [1] author explored an extension of the ideas in [2] from the linear to the quadratic case. For linear case the idea was to eliminate a quantifier from $\exists x \varphi$ by replacing $x$ in $\varphi$ with $t$ that may involve improper expressions such as $\pm \infty$ or $\epsilon$. However, $\varphi [t\backslash\backslash x]$ is defined in such a way that these improper expressions do not occur in the resulting formula.
 
+Author extended these idea to various quadratic cases. The cases are the substitution of SREs and the substitution of infinitesimal expressions in formulas.
+
+In virtual substitution, first a variable is replaced by test candidate and to perform the replacement we need to construct test candidates. An univariate real-arithmetic formula is satisfiable if and only if there is one test candidate for which satisfies formula and the side conditions of t holds. For multivariate real-arithmetic formula the virtual substitution method continues with the elimination of the next variable.
+
+In this section we will see how we can apply virtual substitution. Let us consider a multivariate real-arithmetic formula which we will use in this section,
+$$ \varphi^\mathbb{R} = \underbrace{(x^{2}y + x + y = 0)}\limits_{p_{1}} \wedge \underbrace{(y^{2} -2 < 0)}\limits_{p_{2}}$$
+\subsection{Constructing test candidates with side condition}
+First we will eliminate $x$ from $\varphi^\mathbb{R}$. To construct the test candidates for x, we have to compute SqrtEx for $x$. Also we need to consider an infinitesimal $\epsilon$.
+\begin{mdframed}[hidealllines=true,backgroundcolor=blue!20,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt]
+	\begin{definition}[Construction of Test Candidates]
+		\label{def:construction_of_test_candidates}
+		The set of all test candidates is defined by,
+		$$ TCS := SqrtEx \cup \{t+\epsilon \text{ } \lvert  \text{ }t\in SqrtEx\} $$
+		The set of test candidates for $x$ in $p(x) = ax^{2} + bx + c \sim 0$ is defined by,
+		$$
+		(x, p(x)\sim 0)
+		\quad \mapsto \quad 
+		\left\{
+		\begin{array}{ll}
+		{\displaystyle \{-\infty,\frac{-c}{b},\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}\}} 
+		& 
+		\text{, if }\sim \text{ is weak }
+		\\[0.6cm] % adjust the line spacing
+		{\displaystyle \{-\infty,\frac{-c}{b} + \epsilon,\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}+\epsilon\}}
+		& 
+		\text{, otherwise }
+		\end{array}
+		\right.$$
+		where $a, b, c \in P$, $x\notin a\cup b\cup c $ and weak means $\{=,\leq,\geq\}$
+		
+		The side condition of a test candidate is defined by,
+		$$
+		C_t: t
+		\quad \mapsto \quad 
+		\left\{
+		\begin{array}{lll}
+		{\displaystyle C_{t^{\prime}}}
+		& 
+		\text{, if } t = t^{\prime} + \epsilon
+		\\[0.6cm] % adjust the line spacing
+		{\displaystyle \{s\neq 0 \wedge r\geq 0\}}
+		& 
+		\text{, if } t = \frac{p+q\sqrt{r}}{s}
+		\\[0.6cm] % adjust the line spacing
+		{\displaystyle true}
+		& 
+		\text{, Otherwise }
+		\end{array}
+		\right.$$
+		where $p, q, r$ and $s$ are polynomials and $t^{\prime}$ is a test candidate where $\epsilon \notin t^{\prime}$.
+	\end{definition}
+\end{mdframed}
+By eliminating $x$ first we get the following test candidates,
+\begin{alignat}{2}
+	&x_{0} = -y\qquad                            
+	&& \text{, if $ y = 0 \wedge 1\neq 0$} \\
+	&x_{1} = \frac{-1 + \sqrt{1^{2}-4y^{2}}}{2y}\qquad      
+	&& \text{, if $ y \neq 0 \wedge 1^{2}-4y^{2}\geq 0$} \\
+	&x_{2} = \frac{-1 - \sqrt{1^{2}-4y^{2}}}{2y}\qquad      
+	&& \text{, if $ y \neq 0 \wedge 1^{2}-4y^{2}\geq 0$} \\
+	&x_{3} = -\infty\qquad      
+	&& \text{, if $ y = 0 \wedge 1 = 0$}
+\end{alignat}
+Here, $C_{x_{3}}$ is invalid. So, $x_{3}$ can not be a real zero of $p_{1}$
