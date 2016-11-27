@@ -1,8 +1,8 @@
 \section{Solving Non-linear Equalities with Virtual Substitution}
 \label{sec:solving non-linear equalities with virtual substitution}
-VS is a restricted but very efficient procedure to solve non-linear equalities. In the paper [1] author explored an extension of the ideas in [2] from the linear to the quadratic case. For linear case the idea was to eliminate a quantifier from $\exists x \varphi$ by replacing $x$ in $\varphi$ with $t$ that may involve improper expressions such as $\pm \infty$ or $\epsilon$. However, $\varphi [t\backslash\backslash x]$ is defined in such a way that these improper expressions do not occur in the resulting formula.
+Virtual Substitution is a restricted but very efficient procedure to solve non-linear equalities. In the paper [1] author explored an extension of the ideas in [2] from the linear to the quadratic case. For linear case the idea was to eliminate a quantifier from $\exists x \varphi$ by replacing $x$ in $\varphi$ with $t$ that may involve improper expressions such as $\pm \infty$ or $\epsilon$. However, $\varphi [t\backslash\backslash x]$ is defined in such a way that these improper expressions do not occur in the resulting formula.
 
-Author extended these idea to various quadratic cases. The cases are the substitution of SREs and the substitution of infinitesimal expressions in formulas.
+Author extended these idea to various quadratic cases. The cases are the substitution of square root expressions and the substitution of infinitesimal expressions in formulas.
 
 In virtual substitution, first a variable is replaced by test candidate and to perform the replacement we need to construct test candidates. An univariate real-arithmetic formula is satisfiable if and only if there is one test candidate for which satisfies formula and the side conditions of t holds. For multivariate real-arithmetic formula the virtual substitution method continues with the elimination of the next variable.
 
@@ -148,7 +148,9 @@ where $p^{\prime}$ and $p^{\prime\prime}$ are the fist and second derivative of 
 		$$\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y=0)[\sqrt{2}\backslash\backslash y]\wedge (2<0[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}}\text{ }\wedge \text{ }1\neq 0 \text{ }\wedge \text{ }8 \geq 0 $$
 		Here, $y^{2}-2\nless 0$ for $y=\sqrt{2} + \epsilon$. Because, from the figure 1 we can see that for $\sqrt{2}$ case 1 does not hold. If we move to the right of $\sqrt{2}$, the constraint is increasing instead of decreasing. So case 2 and case 3 also do not hold.
 		\item For $t=-\sqrt{2}$,
-		$$(y^{2}-2<0)[-\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y<0)[-\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
+		$$(y^{2}-2<0)[-\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }$$
+		
+		$$\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y<0)[-\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 		$$\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y=0)[-\sqrt{2}\backslash\backslash y]\wedge (2<0[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}} \text{ }\wedge\text{ } 1\neq 0 \text{ }\wedge\text{ } 8 \geq 0 $$
 		From the figure 1, we can see that case 1 does not hold for $-\sqrt{2}$. But, case 2 holds as the constraint is decreasing for at least one point to right of $-\sqrt{2}$. So, $y^{2}-2<0$ for $y = -\sqrt{2} + \epsilon$
 	\end{itemize}
