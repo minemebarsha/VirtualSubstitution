@@ -6,8 +6,16 @@ $$ \exists x. \varphi^\mathbb{R} \Longleftrightarrow \bigvee\limits_{t\in T(x,\v
 Again, let us consider $\exists x.\varphi$ where, $\varphi = (x^{2}y + x + y = 0) \wedge (y^{2} -2 < 0)$. We already constructed all the test candidates for $x$ and $y$. Also we get to know about substitution rules with virtual substitution. By using the substitution rules, we eliminate all occurrences of $x$ and $y$ from $\varphi$. Then we get the following equivalence holds.
 $$ \exists x\exists y. \varphi \Longleftrightarrow \bigvee\limits_{t_{1}\in T(x,\varphi)}(\bigvee\limits_{t\in T(y,\varphi^{\prime})}  (\varphi^{\prime} [t_{2}\backslash\backslash y] \wedge C_{t_{2}}))$$
 where, $\varphi^{\prime} = (\varphi [t_{1}\backslash\backslash x] \wedge C_{t_{1}})$.
+\begin{center}
+	\input{ro_4.tex}
+\end{center}
+The solutions of $x$ and $y$ for $\varphi$ is shown in the figure 2 and 3. Also we can have an overview of virtual substitution though figure 4.
 
-The solutions of $x$ and $y$ foe $\varphi$ is shown in the figure 2. Also we can briefly understand the whole procedure of virtual substitution though figure 3.
-
-\input{ro_4.tex}
-\input{ro_1.tex}
+\begin{figure}[htb] % where to insert the figure: h=here, t=top, b=bottom,
+	% the order htb shows which position is preffered
+	\begin{center}
+	\input{pictures/directedTree.tex}
+	\end{center}
+	\caption{Example of Virtual Substitution.}
+	\label{fig:graph}
+\end{figure}

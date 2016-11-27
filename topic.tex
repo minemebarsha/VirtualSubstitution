@@ -140,7 +140,7 @@ where $p^{\prime}$ and $p^{\prime\prime}$ are the fist and second derivative of 
 	\item Case 2 states that if we substitute $t$ for all $x$ in $p$, it will evaluate to a zero. Also if we move to the right of $t$, $p$ will decrease only when $(p^{\prime}<0)[t\backslash\backslash x]$. So, there must be a value in the right of $t$ so that $p$ will evaluate to a negative value
 	\item In case 3 $p<0[t\backslash\backslash x]$ holds if and only if for $x = t$ $p$, $p^{\prime}$ are equal to $0$, but $p^{\prime\prime}$ evaluates to $0$. It means, there must be a value from $t$ to positive $x$-direction for which $p<0$.
 \end{itemize}
-\input{epcilon.tex}
+
 	Let us consider our example $\varphi$. We already eliminated $x$ from $\varphi$ and currently, we have $\varphi_{1}$ and $\varphi_{4}$. In both of this formula, there is a constraint $y^{2}-2<0$ from which we already constructed the test candidates $\pm\sqrt{2}+\epsilon$.
 	\begin{itemize}
 		\item For $t=\sqrt{2}$,
@@ -152,7 +152,9 @@ where $p^{\prime}$ and $p^{\prime\prime}$ are the fist and second derivative of 
 		$$\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y=0)[-\sqrt{2}\backslash\backslash y]\wedge (2<0[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}} \text{ }\wedge\text{ } 1\neq 0 \text{ }\wedge\text{ } 8 \geq 0 $$
 		From the figure 1, we can see that case 1 does not hold for $-\sqrt{2}$. But, case 2 holds as the constraint is decreasing for at least one point to right of $-\sqrt{2}$. So, $y^{2}-2<0$ for $y = -\sqrt{2} + \epsilon$
 	\end{itemize}
-
+	\begin{center}
+	\input{epcilon.tex}
+	\end{center}
 \subsubsection{Substitution of a Minus Infinity}
 	Let $t = -\infty$ is a test candidate of $x$ for $p<0$. $t$ cannot have any other values rather than $-\infty$. If we substitute $x = t$ in $p<0$, then we will get the following formula,
 	$$p<0[-\infty\backslash\backslash x] = (a<0) \text{ } \vee \text{ } (a=0 \wedge b>0) \text{ } \vee \text{ } (a=0 \wedge b=0 \wedge c<0) $$
@@ -161,3 +163,6 @@ where $p^{\prime}$ and $p^{\prime\prime}$ are the fist and second derivative of 
 	In our example, for the constraint $y^{2} - 2 < 0$ of $\varphi_{4}$,
 	$$ y^{2} - 2 < 0 [-\infty\backslash\backslash y] = (1<0)\text{ } \vee\text{ } (1=0 \wedge 0 > 0) \text{ } \vee \text{ } (1=0 \ wedge 0=0 \wedge -2<0) $$
 	Here, $a=1, b=0$ and $c=-2$.
+	\begin{center}
+		\input{ro_1.tex}
+	\end{center}
