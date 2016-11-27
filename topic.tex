@@ -7,9 +7,9 @@ Author extended these idea to various quadratic cases. The cases are the substit
 In virtual substitution, first a variable is replaced by test candidate and to perform the replacement we need to construct test candidates. An univariate real-arithmetic formula is satisfiable if and only if there is one test candidate for which satisfies formula and the side conditions of t holds. For multivariate real-arithmetic formula the virtual substitution method continues with the elimination of the next variable.
 
 In this section we will see how we can apply virtual substitution. Let us consider a multivariate real-arithmetic formula which we will use in this section,
-$$ \varphi^\mathbb{R} = \underbrace{(x^{2}y + x + y = 0)}\limits_{p_{1}} \wedge \underbrace{(y^{2} -2 < 0)}\limits_{p_{2}}$$
+$$ \varphi = \underbrace{(x^{2}y + x + y = 0)}\limits_{p_{1}} \wedge \underbrace{(y^{2} -2 < 0)}\limits_{p_{2}}$$
 \subsection{Constructing test candidates with side condition}
-First we will eliminate $x$ from $\varphi^\mathbb{R}$. To construct the test candidates for x, we have to compute SqrtEx for $x$. Also we need to consider an infinitesimal $\epsilon$.
+First we will eliminate $x$ from $\varphi$. To construct the test candidates for x, we have to compute SqrtEx for $x$. Also we need to consider an infinitesimal $\epsilon$.
 \begin{mdframed}[hidealllines=true,backgroundcolor=blue!20,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt]
 	\begin{definition}[Construction of Test Candidates]
 		\label{def:construction_of_test_candidates}
@@ -70,13 +70,13 @@ To eliminate $x$ first we get the following test candidates,
 \end{alignat}
 Here, $C_{x_{3}}$ is invalid. So, $x_{3}$ does not exist for $p_{1}$.
 
-Now, we will put all the test candidates of $x$ in $\varphi^\mathbb{R}$ and we will get following three quantifier free and $x$ free real-arithmetic formulas,
+Now, we will put all the test candidates of $x$ in $\varphi$ and we will get following three quantifier free and $x$ free real-arithmetic formulas,
 \begin{alignat}{2}
-	&\varphi_{1} = \varphi^{\mathbb{R}}(x_{0}\backslash\backslash x) = (y^{3} + 2y = 0) \wedge (y^{2} - 2 < 0) \wedge (y = 0) \wedge (1 \neq 0) \qquad      
+	&\varphi_{1} = \varphi [x_{0}\backslash\backslash x] = (y^{3} + 2y = 0) \wedge (y^{2} - 2 < 0) \wedge (y = 0) \wedge (1 \neq 0) \qquad      
 	 \\
-	&\varphi_{2} = \varphi^{\mathbb{R}}(x_{1}\backslash\backslash x) = (p_{3} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
+	&\varphi_{2} = \varphi [x_{1}\backslash\backslash x] = (p_{3} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
 	 \\
-	&\varphi_{3} = \varphi^{\mathbb{R}}(x_{2}\backslash\backslash x) = (p_{4} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
+	&\varphi_{3} = \varphi [x_{2}\backslash\backslash x] = (p_{4} = 0) \wedge (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) \qquad      
 	&&
 \end{alignat}
 where, 
@@ -107,9 +107,9 @@ $$p_{4} = (\underbrace{(\frac{-1 - \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 - \sqrt{
 \end{table}
 To eliminate $y$ from $\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$ we construct the test candidates for $y$ given in Table 3.1 where we marked the valid and invalid side conditions.
 \subsection{Substitute Variables by Test Candidates Virtually}
-We have already seen the construction of test candidates for a given multivariate real-arithmetic formula $\varphi^{\mathbb{R}}$. $\varphi^{\mathbb{R}}$ is satisfiable if and only if one of the test candidates is a solution of $\varphi^{\mathbb{R}}$. If all test candidates satisfy $\varphi^{\mathbb{R}}$, it is said to be valid.
+We have already seen the construction of test candidates for a given multivariate real-arithmetic formula $\varphi $. $\varphi $ is satisfiable if and only if one of the test candidates is a solution of $\varphi $. If all test candidates satisfy $\varphi $, it is said to be valid.
 
-We eliminated $x$ already and currently we have $\varphi_{1},\varphi_{2}$ and $\varphi_{3}$ from which $y$ is needed to be eliminate. In $\varphi_{1}$, there is a constraint $y^{3}+2y = 0$ which has a degree of 3. We will not consider this constraint for substitution as the degree is higher than 2. If the constructed test candidates of $y$ from the other constrains in $\varphi_{1}$ satisfy this constraint, $\varphi^{\mathbb{R}}$ is satisfiable. $\varphi_{2}$ and $\varphi_{3}$ have become same as $p_{3}$ and $p_{4}$ are already satisfied. Further, we will represent $\varphi_{2}$ and $\varphi_{3}$ as $\varphi_{4}$.
+We eliminated $x$ already and currently we have $\varphi_{1},\varphi_{2}$ and $\varphi_{3}$ from which $y$ is needed to be eliminate. In $\varphi_{1}$, there is a constraint $y^{3}+2y = 0$ which has a degree of 3. We will not consider this constraint for substitution as the degree is higher than 2. If the constructed test candidates of $y$ from the other constrains in $\varphi_{1}$ satisfy this constraint, $\varphi $ is satisfiable. $\varphi_{2}$ and $\varphi_{3}$ have become same as $p_{3}$ and $p_{4}$ are already satisfied. Further, we will represent $\varphi_{2}$ and $\varphi_{3}$ as $\varphi_{4}$.
 $$\varphi_{4} = (y^{2} - 2 < 0) \wedge (y \neq 0) \wedge (1-4y^{2}\geq 0) $$
 
 In this section, we will eliminate $y$ by substituting the test candidates and check if the formula is satisfiable. To perform substitution the major substitution rules are described in the following.
@@ -137,21 +137,27 @@ $$\underbrace{((p=0)[t\backslash\backslash x]\wedge(p^{\prime}=0)[t\backslash\ba
 where $p^{\prime}$ and $p^{\prime\prime}$ are the fist and second derivative of $p$ for $x$, respectively. $(p<0)[t+\epsilon\backslash\backslash x]$ holds if and only if any of the three cases hold for $x=t$
 \begin{itemize}
 	\item Case 1 states that if we substitute $t$ for all $x$ in $p<0$ and it holds, there must be a value in the right of $t$. It means if $x$ has this value, after substitution in $p$, it will still evaluate to a negative value.
-	\item Case 2 states that if we substitute $t$ for all $x$ in $p$, it will evaluate to a zero. Also if we move to the right of $t$, $p$ will decrease. So, there must be a value in the right of $t$ so that $p$ will evaluate to a negative value
-	\item Case 3 states the same as case 2.
+	\item Case 2 states that if we substitute $t$ for all $x$ in $p$, it will evaluate to a zero. Also if we move to the right of $t$, $p$ will decrease only when $(p^{\prime}<0)[t\backslash\backslash x]$. So, there must be a value in the right of $t$ so that $p$ will evaluate to a negative value
+	\item In case 3 $p<0[t\backslash\backslash x]$ holds if and only if for $x = t$ $p$, $p^{\prime}$ are equal to $0$, but $p^{\prime\prime}$ evaluates to $0$. It means, there must be a value from $t$ to positive $x$-direction for which $p<0$.
 \end{itemize}
 \input{epcilon.tex}
-	Let us consider our example $\varphi^\mathbb{R}$. We already eliminated $x$ from $\varphi^\mathbb{R}$ and currently, we have $\varphi_{1}$ and $\varphi_{4}$. In both of this formula, there is a constraint $y^{2}-2<0$ from which we already constructed the test candidates $\pm\sqrt{2}+\epsilon$.
+	Let us consider our example $\varphi$. We already eliminated $x$ from $\varphi$ and currently, we have $\varphi_{1}$ and $\varphi_{4}$. In both of this formula, there is a constraint $y^{2}-2<0$ from which we already constructed the test candidates $\pm\sqrt{2}+\epsilon$.
 	\begin{itemize}
 		\item For $t=\sqrt{2}$,
 		$$(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y<0)[\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 		$$\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y=0)[\sqrt{2}\backslash\backslash y]\wedge (2<0[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}}\text{ }\wedge \text{ }1\neq 0 \text{ }\wedge \text{ }8 \geq 0 $$
-		here, $y^{2}-2\nless 0$ for $y=\sqrt{2} + \epsilon$. Because, from the figure 1 we can see that for $\sqrt{2}$ case 1 does not hold. If we move to the right of $\sqrt{2}$, the constraint is increasing instead of decreasing. So case 2 and case 3 also do not hold.
+		Here, $y^{2}-2\nless 0$ for $y=\sqrt{2} + \epsilon$. Because, from the figure 1 we can see that for $\sqrt{2}$ case 1 does not hold. If we move to the right of $\sqrt{2}$, the constraint is increasing instead of decreasing. So case 2 and case 3 also do not hold.
 		\item For $t=-\sqrt{2}$,
 		$$(y^{2}-2<0)[-\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y<0)[-\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 		$$\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y=0)[-\sqrt{2}\backslash\backslash y]\wedge (2<0[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}} \text{ }\wedge\text{ } 1\neq 0 \text{ }\wedge\text{ } 8 \geq 0 $$
 		From the figure 1, we can see that case 1 does not hold for $-\sqrt{2}$. But, case 2 holds as the constraint is decreasing for at least one point to right of $-\sqrt{2}$. So, $y^{2}-2<0$ for $y = -\sqrt{2} + \epsilon$
 	\end{itemize}
-\input{ro_4.tex}
-\subsubsection{Substitution of a Minus Infinity}
 
+\subsubsection{Substitution of a Minus Infinity}
+	Let $t = -\infty$ is a test candidate of $x$ for $p<0$. $t$ cannot have any other values rather than $-\infty$. If we substitute $x = t$ in $p<0$, then we will get the following formula,
+	$$p<0[-\infty\backslash\backslash x] = (a<0) \text{ } \vee \text{ } (a=0 \wedge b>0) \text{ } \vee \text{ } (a=0 \wedge b=0 \wedge c<0) $$
+	where, $p=ax^{2}+bx+c$.
+	
+	In our example, for the constraint $y^{2} - 2 < 0$ of $\varphi_{4}$,
+	$$ y^{2} - 2 < 0 [-\infty\backslash\backslash y] = (1<0)\text{ } \vee\text{ } (1=0 \wedge 0 > 0) \text{ } \vee \text{ } (1=0 \ wedge 0=0 \wedge -2<0) $$
+	Here, $a=1, b=0$ and $c=-2$.
