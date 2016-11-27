@@ -1,0 +1,11 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\begin{document}
+
+\begin{tikzpicture}
+      \draw[->] (-3,0) -- (4.2,0) node[right] {$y$};
+      \draw[->] (0,-3) -- (0,4.2) node[above] {$x$};
+      \draw[scale=0.5,domain=-3:3,smooth,variable=\y,blue] plot ({\y},{\y*\y-2});
+	\draw[scale=0.5,domain=-3:3,smooth,variable=\y,red] plot ({\y},{1-4*\y*\y});
+    \end{tikzpicture}
+\end{document}

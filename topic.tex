@@ -105,3 +105,29 @@ $$p_{4} = (\underbrace{(\frac{-1 - \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 - \sqrt{
 	\end{tabular}
 \end{table}
 To eliminate $y$ from $\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$ we construct the test candidates for $y$ given in Table 3.1 where we marked the valid and invalid side conditions.
+\subsection{Substitute Variables by Test Candidates Virtually}
+We have already seen the construction of test candidates for a given multivariate real-arithmetic formula $\varphi^{\mathbb{R}}$. $\varphi^{\mathbb{R}}$ is satisfiable if and only if one of the test candidates is a solution of $\varphi^{\mathbb{R}}$. If all test candidates satisfy $\varphi^{\mathbb{R}}$, it is said to be valid.
+
+We eliminated $x$ already and currently we have $\varphi_{1},\varphi_{2}$ and $\varphi_{3}$ from which $y$ is needed to be eliminate. In $\varphi_{1}$, there is a constraint $y^{3}+2y = 0$ which has a degree of 3. We will not consider this constraint for substitution as the degree is higher than 2. If the constructed test candidates of $y$ from the other constrains in $\varphi_{1}$ satisfy this constraint, $\varphi^{\mathbb{R}}$ is satisfiable. $\varphi_{2}$ and $\varphi_{3}$ have become same as $p_{3}$ and $p_{4}$ are already satisfied. Further, we will represent $\varphi_{2}$ and $\varphi_{3}$ as $\varphi_{4}$.
+
+In this section, we will eliminate $y$ by substituting the test candidates and check if the formula is satisfiable. To perform substitution the major substitution rules are described in the following.
+\subsubsection{Substitute of Square Root Expressions}
+Let, t is a test candidate for $x$ where $t = \frac{p_{1}+q_{1}\sqrt{r}}{s_{1}}$ is a square root expression. Let consider a constraint $p=0$ and we want to substitute $t$ for $x$ in it. If we substitute $t$ for all occurrences of $x$ in $p$, we can transform the result into $\frac{p_{2}+q_{2}\sqrt{r}}{s_{2}}$ which is also a square root expression where $p_{2}, q_{2}$ and $s_{2}\in P$. It has to be mentioned that, the radicand still remains the same which is $r$.
+This transformation is possible as the summation and multiplication result of two square root expression with the same radicand is a square root expression of that radicand.
+\begin{itemize}
+	\item Summation,
+	$$ \frac{p_{3}+q_{3}\sqrt{r}}{s_{3}}+\frac{p_{4}+q_{4}\sqrt{r}}{s_{4}} = \frac{s_{4}(p_{3}+q_{3}\sqrt{r})+s_{3}(p_{4}+q_{4}\sqrt{r})}{s_{3}s_{4}} = \frac{s_{4}p_{3}+s_{4}q_{3}\sqrt{r}+s_{3}p_{4}+s_{3}q_{4}\sqrt{r}}{s_{3}s_{4}}$$
+	$$ =\frac{\overbrace{s_{4}p_{3}+s_{3}p_{4}}\limits^{p_{2}}+(\overbrace{s_{4}q_{3}+s_{3}q_{4}}\limits^{q_{2}})\sqrt{r}}{\underbrace{s_{3}s_{4}}\limits_{s_{2}}}$$
+	\item Multiplication,
+	$$ \frac{p_{3}+q_{3}\sqrt{r}}{s_{3}}*\frac{p_{4}+q_{4}\sqrt{r}}{s_{4}} =
+	\frac{(p_{3}+q_{3}\sqrt{r})(p_{4}+q_{4}\sqrt{r})}{s_{3}s_{4}} =
+	\frac{p_{3}p_{4}+p_{3}q_{4}\sqrt{r}+p_{4}q_{3}\sqrt{r}+q_{3}\sqrt{r}q_{4}\sqrt{r}}{s_{3}s_{4}}$$
+	$$
+	=\frac{\overbrace{p_{3}p_{4}}\limits^{p_{2}}+(\overbrace{p_{3}q_{4}+p_{4}q_{3}+q_{3}q_{4}}\limits^{q_{2}})\sqrt{r}}{\underbrace{s_{3}s_{4}}\limits_{s_{2}}}$$
+\end{itemize}
+
+The equation $\frac{p_{2}+q_{2}\sqrt{r}}{s_{2}} = 0$ holds if and only if $p_{2}+q_{2}\sqrt{r} = 0$. It holds if and only if either $(p_{2} = 0\wedge q_{2} = 0)$ or $p_{2}$ and $q_{2}$ have different signs with same absolute value, i.e., $|p_{2}|=|q_{2}\sqrt{r}|$. So, after substitution, we get the following quantifier free real arithmetic formula,
+$$ p[t\backslash\backslash x] = (p_{2}q_{2}\leq 0) \wedge (p_{2}^{2} - q_{2}^{2} r = 0) $$
+\subsubsection{Substitute of Infinitesimal Expressions}
+\subsubsection{Substitute of a Minus Infinity}
+\subsubsection{Substitute of a Fraction}
