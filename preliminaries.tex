@@ -4,18 +4,18 @@
 \section{Preliminaries}
 \label{sec:preliminaries}
 Real arithmetic (RA) is a first-order theory $(\mathbb{R}, +, ., 0, 1, <)$ over the reals with addition and multiplication. A RA could be in the form of terms, constraints or formulas which can be built upon constants $0, 1$ and real-valued variables $x$ according to the following syntax:\newline
-\textbf{Terms:} $t:=0|1|x|t+t|t.t$\newline
-\textbf{Constrains:} $C:=t<t$\newline
-\textbf{Constrains:} $\varphi:=c|\neg\varphi|\varphi\wedge\varphi|\exists x.\varphi$\newline
+\textbf{Terms:}\hspace{18mm}$t\hspace{5mm}:=\hspace{5mm}0\hspace{5mm}|\hspace{5mm}1\hspace{5mm}|\hspace{5mm}x\hspace{5mm}|\hspace{5mm}t+t\hspace{5mm}|\hspace{5mm}t \cdot t$\newline
+\textbf{Constrains:}\hspace{6mm} $c\hspace{5mm}:=\hspace{2mm}t<t$\newline
+\textbf{Formulas:}\hspace{10mm} $\varphi\hspace{5mm}:=\hspace{5mm}c\hspace{5mm}|\hspace{3mm}\neg\varphi\hspace{4mm}|\hspace{2mm}\varphi\wedge\varphi\hspace{2mm}|\hspace{5mm}\exists x\cdot\varphi$\newline
 A term is a product of an integer coefficient and a monomial. A monomial is the product of variables and the empty product represents the constant $1$. Constraint is a condition of a RA problem that the solution must satisfy. Syntactic sugar (more clear syntax) are: $\leq,=,\neq,\forall,\vee,\rightarrow,\ldots$. A variable $x$ is said to be a bound variable if x occurs in a formula $\exists x\varphi$, otherwise $x$ is called free variable means not bounded in $\varphi$. A formula with no free variables are called a sentence.\newline
 There are two types of RA: Linear real arithmetic (LRA) and Non-linear real arithmetic (NRA). LRA is a first-order theory over the reals with addition only, whereas the NRA first-order theory over the reals with addition and multiplication.\newline
 A polynomial $P\in R[x]$ is a sum of terms, each term being a variable raised to a power and multiplied by a coefficient from some coefficient ring $R$. If a polynomial has only one variable (i.e. its coefficient are variable-free), it is called univariate, else it is called multivariate: 
 $$ p(x) = a_{d}x^{d} + a_{d-1}x^{d-1} + \ldots + a_{0}x^{0} $$
-where $a_{0}, a_{1},\ldots a_{d}\in R$.\newline
+Where $a_{0}, a_{1},\ldots a_{d}\in R$.\newline
 The degree of $P(x)$ is the maximal $0\leq k\leq d$ such that $a_{k}\neq 0$.\newline.
 \begin{example}
 	The following expression is a non-linear quantifier-free real arithmetic formula where the set of all polynomials in $\varphi$ is $P=\{p_{1}, p_{2}, p_{3}\}$:
 	$$\varphi = (\underbrace{(x^{2}+2x+4z\leq 0)}\limits_{p_{1}}\vee \underbrace{(yx^{2}+6y^{3}x+4z= 0)}\limits_{p_{2})}) \wedge \underbrace{(6y^{3}x+4z< 0)}\limits_{p_{3}} $$
-	where, $x^{2}, x, yx^{2}, y^{3}x$ and $z$ are the monomials, $2x, 6y^{3}x$ and $4z$ are the terms. Degree of $p_{1}(x), p_{2}(x)$ and $p_{3}(x)$ are $2, 2$ and $1$, respectively
+	Where, $x^{2}, x, yx^{2}, y^{3}x$ and $z$ are the monomials, $2x, 6y^{3}x$ and $4z$ are the terms. Degree of $p_{1}(x), p_{2}(x)$ and $p_{3}(x)$ are $2, 2$ and $1$, respectively
 \end{example} 
 We are interested in solving non-linear real arithmetic formula where variables $x_{1},x_{1},\ldots,x_{n}$ are bounded in $\exists x\ldots\exists x_{n}\varphi$ with $\varphi$ quantifier-free. To find solutions we will apply virtual substitution (introduced in Section $3.2$) by eliminating all bound variables $x$ in $\varphi$ recursively.

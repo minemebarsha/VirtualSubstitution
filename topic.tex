@@ -12,7 +12,7 @@ Let $p(x) = ax^{2} + bx + c$ is a quadratic of variable $x$ where $p \in P$ and 
 	&x_{3} = -\infty\qquad      
 	&& \text{, if $ a = 0 \wedge b = 0$}
 \end{alignat}
-here, $x_{0}, x_{1}, x_{2}$ and $x_{3}$ are the real zeros of $p$ in $x$ and the conditions on the right are called side conditions.\newline
+Here $x_{0}, x_{1}, x_{2}$ and $x_{3}$ are the real zeros of $p$ in $x$ and the conditions on the right are called side conditions.\newline
 The constraint $p(x) \sim 0$ has solution intervals $(-\infty, x_{0})$ or $(x_{i}, x_{i+1})$or $[x_{i}, x_{i}]$or $([x_{2}, x_{2}]$ or $(x_{2}, \infty)$ where $0\leq i\leq 1$. So, the endpoints of these intervals are $-\infty, x_{i}$ and $x_{2}$ which are the real zeros. As the real zeros are symbolic and we cannot order them to pick the solutions. Hence, we choose a left endpoint of each left closed interval, a left endpoint of each left opened interval plus an infinitesimal $\epsilon$ as sample solutions shown in the Figure \ref{fig:testcandidates}. These sample solutions are called test candidates.
 \begin{center}
 	\input{testcan.tex}
@@ -21,7 +21,7 @@ To solve a non-linear real arithmetic formula $\varphi$, first we have to choose
 \subsection{Virtual Substitution}
 Virtual substitution is a procedure to eliminate a quantified variable. Let $\varphi$ be a quantifier-free real arithmetic formula where $x\in p(x)$ and $p(x) \sim 0, \sim \in \{=,<,>,\leq,\geq,\neq\}$ is a constraint of   $\varphi^\mathbb{R}$. Degree of $x$ in $p(x)$ must be at most two. Then, quantifier elimination by virtual substitution is based on the following equivalence:
 $$ \exists x\varphi \Longleftrightarrow \bigvee\limits_{t\in T(x,\varphi)}  (\varphi [t\backslash\backslash x] \wedge C_t)$$
-where $T$ is a finite set of all possible test candidates for $x$ and $C_t$ is a side condition of test candidate $t \in T$.
+Where $T$ is a finite set of all possible test candidates for $x$ and $C_t$ is a side condition of test candidate $t \in T$.
 
 Virtual Substitution is a restricted but very efficient procedure to solve non-linear equalities. In the paper [1] author explored an extension of the ideas in [2] from the linear to the quadratic case. For linear case the idea was to eliminate a quantifier from $\exists x \varphi$ by replacing $x$ in $\varphi$ with $t$ that may involve improper expressions such as $\pm \infty$ or $\epsilon$. However, $\varphi [t\backslash\backslash x]$ is defined in such a way that these improper expressions do not occur in the resulting formula.
 
@@ -40,7 +40,7 @@ Let a quadratic equation $p(x) = p_{1}x^{2} + p_{2}x + p_{3} = 0$ in the variabl
 	&x_{3} = -\infty\qquad      
 	&& \text{, if $ p_{1} = 0 \wedge p_{2} = 0 \wedge p_{3}=0$}
 \end{alignat}
-here, $x_{0}, x_{1}$ and $x_{2}$ are the symbolic zeros of $x$ in $p(x)$.
+Here $x_{0}, x_{1}$ and $x_{2}$ are the symbolic zeros of $x$ in $p(x)$.
 \begin{definition}[Square Root Expression]
 	\label{def:square root expression}
 	A square root expression has the following form:
@@ -82,7 +82,7 @@ So, for $x$ in $p(x)$, $SqrtEx=\{-\frac{p_{3}}{p_{2}}, \frac{-p_{2}\pm \sqrt{p_{
 \text{, otherwise }
 \end{array}
 \right.$$
-here, weak means $\{=,\leq,\geq\}$.\newline
+Here weak means $\{=,\leq,\geq\}$.\newline
 And the side condition of each test candidate $t$ is defined by:
 		$$
 C_t
@@ -102,7 +102,7 @@ C_t
 \text{, Otherwise }
 \end{array}
 \right.$$
-here, $t^{\prime}$ is a test candidate which does not contain $\epsilon$.\newline
+Here $t^{\prime}$ is a test candidate which does not contain $\epsilon$.\newline
 Each side condition of the test candidates confirms that each test candidate indeed exists. The side condition of the test candidate $-\infty$ is valid because, it does not relate to a zero.
 \begin{example}
 	Let us consider a non-linear real arithmetic formula as follows:
@@ -118,7 +118,7 @@ Each side condition of the test candidates confirms that each test candidate ind
 		&x_{3} = -\infty\qquad      
 		&& \text{, if $ y = 0 \wedge 1 = 0 \wedge y = 0$}
 	\end{alignat}
-	here, $x_{3}$ does not exist for $p_{1}$ as $C_{x_{3}}$ is invalid.
+	Here $x_{3}$ does not exist for $p_{1}$ as $C_{x_{3}}$ is invalid.
 	Now, we will put all the test candidates of $x$ in $\varphi$ and get following three
 	real-arithmetic formulas without $x$:
 	\begin{alignat}{2}
@@ -129,7 +129,7 @@ Each side condition of the test candidates confirms that each test candidate ind
 		&\varphi_{3} = \varphi [x_{2}\backslash\backslash x] = p_{4} \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} \qquad      
 		&&
 	\end{alignat}
-where, 
+Where 
 $$p_{3} = (\underbrace{(\frac{-1 + \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 + \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero of $x$ in $p_{1}$}}=0)$$ 
 and 
 $$p_{4} = (\underbrace{(\frac{-1 - \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 - \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero of $x$ in $p_{1}$}}=0)$$
@@ -186,7 +186,7 @@ $$ (p = 0)[t\backslash\backslash x] = (p_{2}q_{2}\leq 0) \wedge (p_{2}^{2} - q_{
 Let $t+\epsilon$ is a test candidate for $x$ where $t\neq - \infty$ and $\epsilon \notin t$. Let us consider a constraint $p<0$ and we want to substitute $t$ for $x$ in it. Note that $x$ should be occurred at most quadratic in $p$. After substitution we will get the following real arithmetic formula which does not have $x$:
 $$(p<0)[t+\epsilon\backslash\backslash x]=\underbrace{((p<0)[t\backslash\backslash x])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((p=0)[t\backslash\backslash x]\wedge(p^{\prime}<0)[t\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 $$\underbrace{((p=0)[t\backslash\backslash x]\wedge(p^{\prime}=0)[t\backslash\backslash x]\wedge (p^{\prime\prime}<0[t\backslash\backslash x])}\limits_{\text{Case 3}} $$
-where, $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative of $p$ for $x$, respectively. $(p<0)[t+\epsilon\backslash\backslash x]$ holds if and only if any of the three cases hold for $x=t$.
+Where $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative of $p$ for $x$, respectively. $(p<0)[t+\epsilon\backslash\backslash x]$ holds if and only if any of the three cases hold for $x=t$.
 \begin{itemize}
 	\item Case 1 states that if we substitute $t$ for all $x$ in $p$ and it holds, there must be a satisfying assignment for $p<0$ in the right of $t$. It means substituting $t$ for $x$ in $p$ will still evaluate to a negative value.
 	\item Case 2 states that if we substitute $t$ for all $x$ in $p$, it will evaluate to a zero. Also if we move to the right of $t$, $p$ decreases only when $(p^{\prime}<0)[t\backslash\backslash x]$. So, there must be a value in the right of $t$ such that $p$ evaluates to a negative value.
@@ -195,11 +195,11 @@ where, $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative o
 \begin{example}
 	Let us consider our example formula $\varphi = (x^{2}y + x + y = 0) \wedge (y^{2} -2 < 0)$ for which now we have $\varphi_{1}$ and $\varphi_{4}$. Both of this formula contain $p_{5}=(y^{2}-2<0)$ and we have the test candidates $\pm\sqrt{2}+\epsilon$ for $y$ in $p_{5}$. 
 	\begin{itemize}
-		\item For $t=\sqrt{2}+\epsilon$:
+		\item For $t=\sqrt{2}+\epsilon$,
 		$$(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y<0)[\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 		$$\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y=0)[\sqrt{2}\backslash\backslash y]\wedge (2<0[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}}\text{ }\wedge \text{ }\underbrace{1\neq 0 \text{ }\wedge \text{ }8 \geq 0}\limits_{side \text{ }condition} $$
-		here, $y^{2}-2\nless 0$ for $(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]$. Because, from the Figure \ref{fig:epsilon} we can see that case 1 does not hold for $\sqrt{2}$. If we move to the right of $\sqrt{2}$, $p_{5}$ is increasing instead of decreasing. So, case 2 and case 3 also do not hold.
-		\item For $t=-\sqrt{2}+\epsilon$:
+		Here $y^{2}-2\nless 0$ for $(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]$. Because, from the Figure \ref{fig:epsilon} we can see that case 1 does not hold for $\sqrt{2}$. If we move to the right of $\sqrt{2}$, $p_{5}$ is increasing instead of decreasing. So, case 2 and case 3 also do not hold.
+		\item For $t=-\sqrt{2}+\epsilon$,
 		$$(y^{2}-2<0)[-\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }$$
 		
 		$$\underbrace{((y^{2}-2=0)[-\sqrt{2}\backslash\backslash y]\wedge(2y<0)[-\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
@@ -213,12 +213,50 @@ where, $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative o
 \subsubsection{Substitution of a Minus Infinity}
 	Let $t = -\infty$ be a test candidate for $x$ in $p<0$. $t$ cannot have any other values rather than $-\infty$. If we substitute $x = t$ in $p<0$, we get the following formula:
 	$$p<0[-\infty\backslash\backslash x] = (a<0) \text{ } \vee \text{ } (a=0 \wedge b>0) \text{ } \vee \text{ } (a=0 \wedge b=0 \wedge c<0) $$
-	where, $p=ax^{2}+bx+c$ and $a, b, c$ do not contain $x$.
+	Where $p=ax^{2}+bx+c$ and $a, b, c$ do not contain $x$.
 	\begin{example}
-		Assume $$\varphi_{4} = (y^{2} - 2 < 0)\wedge (y \neq 0) \wedge \underbrace{(1-4y^{2}\geq 0)} $$ which we get from our example formula $\varphi$. By substituting $y=-\infty$ in $p_{5}=(y^{2} - 2 < 0)$ of $\varphi_{4}$ we get the following:
+		Assume $\varphi_{4} = (y^{2} - 2 < 0)\wedge (y \neq 0) \wedge (1-4y^{2}\geq 0)$ which we get from our example formula $\varphi$. By substituting $y=-\infty$ in $p_{5}=(y^{2} - 2 < 0)$ of $\varphi_{4}$ we get the following:
 			$$ y^{2} - 2 < 0 [-\infty\backslash\backslash y] = (1<0)\text{ } \vee\text{ } (1=0 \wedge 0 > 0) \text{ } \vee \text{ } (1=0 \wedge 0=0 \wedge -2<0) $$
-			here, $a=1, b=0$ and $c=-2$.
+			Here $a=1, b=0$ and $c=-2$.
 			\begin{center}
 				\input{ro_1.tex}
 			\end{center}
 	\end{example}
+\subsection{Quantifier Elimination with the Virtual Substitution}
+\label{sec:quantifier-elimination-with-the-virtual-substitution}
+Let $\varphi$ is a quantifier-free real arithmetic formula where $x\in \varphi$ and $x$ has at most quadratic in $\varphi$. After eliminating existential and universal qualifier with virtual substitution we will get the following equivalences, respectively:
+\begin{alignat}{2}
+	&\exists x \varphi^\mathbb{R} \Longleftrightarrow \bigvee\limits_{t\in T(x,\varphi^\mathbb{R})}  (\varphi^\mathbb{R} [t\backslash\backslash x] \wedge C_t)\qquad   \\
+	& \forall x \varphi^\mathbb{R} \Longleftrightarrow \bigwedge\limits_{t\in T(x,\varphi^\mathbb{R})}  (C_{t}\rightarrow\varphi^\mathbb{R} [t\backslash\backslash x] )\qquad
+\end{alignat}
+Now, let us consider $\exists y\exists x\varphi$ where, $\varphi = (x^{2}y + x + y = 0) \wedge (y^{2} -2 < 0)$. We already constructed all the test candidates for $x$ and $y$ in all the polynomials of $\varphi$. Also we get to know about virtual substitution rules. Based on virtual substitution rules, we can eliminate all occurrences of $x$ and $y$ from $\varphi$ by successively eliminating all bound variables ($x,y$) starting with the inner most one.
+\begin{center}
+\input{ro_4.tex}
+\end{center}
+The solution values for $x$ and $y$ in $\varphi$ is shown in the figure \ref{fig:ro_1} and \ref{fig:ro_4}. Also Figure\ref{fig:graph} illustrates an overview of solving non-linear real arithmetic formula with virtual substitution.\newline
+We get the proof of equation (4.1) which we have explained throughout this paper by an example of non-linear real arithmetic formula. Equation (4.2) can be implied by equation (4.1) as follows:
+%C_{\sim}(\varphi^\mathbb{R})=C_{\sim}(\neg\varphi^\mathbb{R})
+\begin{alignat}{2}
+	& \forall x. \varphi\qquad   
+	&&\stackrel{}{\Longleftrightarrow} \neg\exists x.\neg\varphi \\
+	& 
+	&&\stackrel{}{\Longleftrightarrow} \neg(\bigvee\limits_{t\in T(x,\neg \varphi)}
+	(\neg\varphi [t\backslash\backslash x] \wedge C_t) \\
+	& 
+	&&\stackrel{}{\Longleftrightarrow} \bigwedge\limits_{t\in T(x,\neg \varphi)} (\varphi [t\backslash\backslash x] \vee\neg C_{t}) \\
+	& 
+	&&\stackrel{}{\Longleftrightarrow}  \bigwedge\limits_{t\in T(x, \varphi)} (C_{t} \rightarrow \varphi [t\backslash\backslash x])
+\end{alignat}
+Where we get 
+\begin{itemize}
+	\item Equation $4.4$ by Equation $4.1$.
+	\item Equation $4.5$ and Equation $4.6$ after applying $\neg((\neg\varphi_{1})\wedge\varphi_{2})=(\varphi_{1} \vee \neg\varphi_{2})$ and $(\varphi_{1} \vee \neg\varphi_{2})=(\varphi_{2} \rightarrow \varphi_{1})$, respectively.
+\end{itemize}
+\begin{figure}[htb] % where to insert the figure: h=here, t=top, b=bottom,
+	% the order htb shows which position is preffered
+	\begin{center}
+		\input{pictures/directedTree.tex}
+	\end{center}
+	\caption{Example of Virtual Substitution.}
+	\label{fig:graph}
+\end{figure}

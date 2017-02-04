@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100) (preloaded format=pdflatex 2016.11.25)  15 DEC 2016 03:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100) (preloaded format=pdflatex 2016.11.25)  27 DEC 2016 14:36
 entering extended mode
 **./main.tex
 (main.tex
@@ -1449,14 +1449,15 @@ Overfull \hbox (3.28784pt too wide) in paragraph at lines 21--1
 for-mula where vari-ables $\OML/cmm/m/it/10.95 x[]; x[]; [] ; x[]$
  []
 
-[2] (testcan.tex) [3] [4] [5]
+[2] (testcan.tex) [3] [4]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 142.
 
+[5]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 172.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
@@ -1466,11 +1467,12 @@ Overfull \hbox (36.89853pt too wide) detected at line 173
 [] \OT1/cmr/m/n/10.95 + [] = [] = []
  []
 
-[6]
+
 Overfull \hbox (29.7103pt too wide) detected at line 178
 [] \OMS/cmsy/m/n/10.95  [] \OT1/cmr/m/n/10.95 = [] = []
  []
 
+[6]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 198.
 
@@ -1481,30 +1483,29 @@ OMS/cmsy/m/n/10.95 nn\OML/cmm/m/it/10.95 y\OT1/cmr/m/n/10.95 ] = [] [] \OMS/cms
 y/m/n/10.95 _ [] [] []_
  []
 
-[7] (epcilon.tex) [8] (ro_1.tex)) (quantifier-elimination.tex (ro_4.tex)
-(pictures/directedTree.tex)
-Overfull \hbox (21.38654pt too wide) in paragraph at lines 43--18
- [] 
- []
+[7] (epcilon.tex) (ro_1.tex
 
-[9]) (conclusion.tex) [10] (ref.tex) [11]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [8] (ro_4.tex) [9] (pictures/directedTree.tex)) (quantifier-elimination.tex)
+(conclusion.tex) (ref.tex) [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 27.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 27.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 27.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 27.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8DB2C9C6ED22F8F00826C917F1B64F4E;960.
+(rerunfilecheck)             Checksum: 6CAA5151E1C617B04A54071583D92A82;974.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 27.
  ) 
 Here is how much of TeX's memory you used:
- 30849 strings out of 493333
- 604288 string characters out of 3136607
- 727993 words of memory out of 3000000
- 33819 multiletter control sequences out of 15000+200000
+ 30847 strings out of 493333
+ 604286 string characters out of 3136607
+ 720086 words of memory out of 3000000
+ 33818 multiletter control sequences out of 15000+200000
  15901 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,15n,73p,10416b,816s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,15n,73p,10416b,827s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\eh5i0\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\wasy\dpi657\
 wasy10.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
@@ -1524,9 +1525,9 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files (x86)/MiKTeX
 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (11 pages, 283999 bytes).
+Output written on main.pdf (10 pages, 283267 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
