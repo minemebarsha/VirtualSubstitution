@@ -1,0 +1,42 @@
+\begin{figure}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-1.977740789501533,0.) -- (9.204451748455352,0.);
+\foreach \x in {-1.,1.,2.,3.,4.,5.,6.,7.,8.,9.}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0.,-2.876377360519662) -- (0.,2.8013630621257186);
+\foreach \y in {-2.,-1.,1.,2.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-1.977740789501533,-2.876377360519662) rectangle (9.204451748455352,2.8013630621257186);
+\draw[line width=1.2pt,color=qqqqff,smooth,samples=100,domain=-1.977740789501533:9.204451748455352] plot(\x,{sin(((\x)+1.05603)*180/pi)});
+\draw [line width=2.pt] (-0.8864536055584239,0.)-- (1.8960870538234125,0.);
+\draw [line width=2.pt] (2.322743288261961,0.)-- (5.,0.);
+\draw [line width=2.pt] (5.429913691238345,0.)-- (8.184628944026363,0.);
+\draw [line width=2.pt] (-1.2300175057281486,0.)-- (-4.,0.);
+\draw [line width=2.pt] (8.581504442384977,0.)-- (11.3176346026687,0.);
+\draw (0.13229918803454258,2.740202483066702) node[anchor=north west] {p(x)};
+\draw (8.8884554233171,-0.08337758349123406) node[anchor=north west] {x};
+\begin{scriptsize}
+\draw [fill=uuuuuu] (2.085562653878161,-2.8836742959461883E-10) circle (2.0pt);
+\draw [fill=uuuuuu] (-1.0560300000476246,-4.7624570953530565E-11) circle (2.0pt);
+\draw [fill=uuuuuu] (5.227155307181387,1.8000927273723243E-12) circle (1.5pt);
+\draw [fill=uuuuuu] (8.368747960801263,-3.188346151635535E-11) circle (1.5pt);
+\draw [fill=xdxdff] (-4.,0.) circle (2.5pt);
+\draw[color=xdxdff] (-1.9471604999720247,2.888007215792659) node {$E$};
+\draw [fill=xdxdff] (11.516767035081457,0.006426376488375775) circle (2.5pt);
+\draw[color=xdxdff] (-1.9471604999720247,2.888007215792659) node {$F$};
+\draw [fill=xdxdff] (-0.8864536055584239,0.) circle (1.5pt);
+\draw [fill=xdxdff] (1.8960870538234125,0.) circle (1.5pt);
+\draw [fill=xdxdff] (2.322743288261961,0.) circle (1.5pt);
+\draw [fill=xdxdff] (5.,0.) circle (1.5pt);
+\draw [fill=xdxdff] (5.429913691238345,0.) circle (1.5pt);
+\draw [fill=xdxdff] (8.184628944026363,0.) circle (1.5pt);
+\draw [fill=xdxdff] (-1.2300175057281486,0.) circle (1.5pt);
+\draw [fill=xdxdff] (8.581504442384977,0.) circle (1.5pt);
+\draw [fill=xdxdff] (11.3176346026687,0.) circle (2.5pt);
+\draw[color=xdxdff] (-1.9471604999720247,2.888007215792659) node {$O$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}

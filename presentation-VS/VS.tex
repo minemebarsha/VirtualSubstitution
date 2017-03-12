@@ -1,0 +1,326 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+
+
+\documentclass{beamer}
+
+%
+% DO NOT USE THIS FILE AS A TEMPLATE FOR YOUR OWN TALKS¡!!
+%
+% Use a file in the directory solutions instead.
+% They are much better suited.
+%
+
+
+% Setup appearance:
+
+\usetheme{Darmstadt}
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+
+
+% Standard packages
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage[normalem]{ulem}               % to striketrhourhg text
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon}
+\usepackage{pdfcomment}
+\usepackage{multirow}
+
+
+% Setup TikZ
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+\usepackage{pgf}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+% Author, Title, etc.
+\setbeamertemplate{footline}[frame number]
+\title[]
+{%
+Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
+}
+
+\author[Zaman]
+{
+	Author: Aklima Zaman
+	\\ Supervision: Erika \'{A}brah\'{a}m
+}
+
+\institute[]
+{
+	Theory of Hybrid Systems - Informatik 2 - RWTH-Aachen
+}
+
+\date[WABI 2006]
+{Satisfiability Seminar, Winter-16/17}
+
+
+
+% The main document
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+%%	\tableofcontents
+\begin{itemize}
+	\item Motivation
+	\item Preliminaries
+	\item Sign Invariant Regions
+	\item Compute Zeros
+	\item Compute Test Candidates
+	\item Virtual Substitution
+	\item Virtual Substitution Rules
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Motivation}
+	\begin{itemize}
+		\item Other related methods
+			\begin{itemize}
+				\item Interval Constraint Propagation
+				\item Cylindrical Algebraic Decomposition
+			\end{itemize}
+		\item Virtual substitution
+			\begin{itemize}
+				\item Complete for a sub-language
+				\item Eliminates quantified variables up to degree 4
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}{Preliminaries}
+	\begin{itemize}
+		\item <1-> Real arithmetic (RA) formula has the following syntax:\newline
+		{\only<2>{\color{red}}\textbf{terms:}\hspace{12mm}$t\hspace{0mm}:=\hspace{3mm}0\hspace{3mm}|\hspace{3mm}1\hspace{3mm}|\hspace{3mm}x\hspace{3mm}|\hspace{3mm}t+t\hspace{3mm}|\hspace{3mm}t - t\hspace{3mm}|\hspace{3mm}t \cdot t$\newline}
+		{\only<3>{\color{red}}\textbf{constraints:}\hspace{0mm} $c\hspace{0mm}:=\hspace{2mm}t<t$\newline}
+		{\only<4>{\color{red}}\textbf{formulas:}\hspace{4mm} $\varphi\hspace{0mm}:=\hspace{3mm}c\hspace{3mm}|\hspace{3mm}\neg\varphi\hspace{3mm}|\hspace{3mm}\varphi\wedge\varphi\hspace{3mm}|\hspace{3mm}\exists x\cdot\varphi$\newline}
+		\item <5-> A polynomial {\only<5>{\color{red}}$P(x)\in Z[x_{1}\dots,x_{n}][x]$} has following form:
+		{\only<5>{\color{red}}$$ p(x) = a_{d}x^{d} + a_{d-1}x^{d-1} + \ldots + a_{0}x^{0} $$}
+		Example:
+		$$\varphi = (\underbrace{({\only<6>{\color{red}}x^{2}}+{\only<7>{\color{red}}2}{\only<6>{\color{red}}x}+{\only<7>{\color{red}}4}{\only<6>{\color{red}}z})}\limits_{{\only<8>{\color{red}}p_{1}}}\leq 0\vee \underbrace{({\only<6>{\color{red}}yx^{2}}+{\only<7>{\color{red}}6}{\only<6>{\color<6>{red}}y^{3}x}+{\only<7>{\color{red}}4}{\only<6>{\color{red}}z})}\limits_{{\only<8>{\color{red}}p_{2}}}= 0)$$
+	\end{itemize}
+\end{frame}
+\begin{frame}{Sign Invariant Regions}
+	\begin{center}
+		\input{regions.tex}
+	\end{center}
+\end{frame}
+\begin{frame}{Compute Zeros}
+	\only<1>{
+	$p(x) = ax^{2} + bx + c$
+	\begin{center}
+		\input{constancezeros.tex}
+	\end{center}
+	$x_{0} = -\infty$\newline
+	side condition: $a=0\wedge b=0$
+	}
+	\only<2>{
+	$p(x) = ax^{2} + bx + c$
+	\begin{center}
+		\input{lzros.tex}
+	\end{center}
+	$x_{1} = -b/c$\newline
+	side condition: $a=0\wedge b\neq 0$
+	}
+	\only<3>{
+	$p(x) = ax^{2} + bx + c$
+	\begin{center}
+		\input{qzeros.tex}
+	\end{center}
+	$x_{2} = \frac{-b + \sqrt{b^{2}-4ac}}{2a}$, $x_{3} = \frac{-b - \sqrt{b^{2}-4ac}}{2a}$\newline
+	side condition: $a\neq0\wedge b^{2}-4ac\geq 0$
+}
+\end{frame}
+\begin{frame}{Compute Test Candidates}
+	Possible solution intervals for x om $p\sim 0$:
+	\begin{table}[]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Constraints & $-\infty$ & $x_{1}$ & $x_{1}+\epsilon$ & $x_{2}$ & $x_{2}+\epsilon$ & $x_{3}$ & $x_{3}+\epsilon$ \\ \hline
+			$p=0$ 						& - & $\checked$ & - & $\checked$ & - & $\checked$ & - \\ \hline
+			$p>0$, $p<0$, $p\neq0$ 		& $\checked$ & - & $\checked$ & - & $\checked$ & - & $\checked$ \\ \hline
+			$p\geqslant0, p\leqslant0$	& $\checked$ & $\checked$ & - & $\checked$ & - & $\checked$ & - \\ \hline
+		\end{tabular}
+	\end{table}
+	\input{testcan.tex}
+\end{frame}
+
+\begin{frame}{Virtual Substitution}
+\begin{itemize}
+	\item Virtual Substitution is an existential quantifier elimination procedure:
+	$$\exists x_{1} \dots \exists x_{n}\cdot \varphi^{\prime} \rightarrow \exists x_{1} \dots \exists x_{n-1}\cdot \psi^{\prime} $$
+	where $\varphi^{\prime}, \psi^{\prime}$ quantifier free and $\exists x_{1} \dots \exists x_{n}\cdot \varphi^{\prime} \equiv \exists x_{1} \dots \exists x_{n-1}\cdot \psi^{\prime} $
+	\item <1-> Quantifier elimination by virtual substitution is based on the following equivalence:
+	$$\exists x_{1} \dots \exists x_{n}\cdot \varphi^{\prime} \equiv \exists x_{1} \dots \exists x_{n-1}\cdot \bigvee\limits_{
+		{t\in T}} \varphi^{\prime}[t\backslash\backslash x]\wedge S_{t}$$
+\end{itemize}
+\end{frame}
+\begin{frame}{Flow Chart}
+	\begin{center}
+	\includegraphics[scale=0.28]{FlowChart.pdf}
+	\end{center}
+\end{frame}
+\begin{frame}{Example}
+	$\varphi:=((\underbrace{xy-1}\limits_{p_{1}}=0)\wedge \underbrace{y^{2}-1}\limits_{p_{2}}<0)$\\
+	Elimination of $y$:
+	\begin{table}[]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& constraints & test candidates \\ \hline
+			1. & from all constraints                & $-\infty$ \\ \hline
+			2. & $p_{1}=0$                           & $1/x\hspace{.2cm}$ if $\hspace{.2cm}x \neq 0$ \\ \hline
+			3. & $p_{2}<0$ & $1+\epsilon$ \\ \hline
+			4. & $p_{2}<0$  & $-1+\epsilon$ \\ \hline
+		\end{tabular}
+	\end{table}
+	\visible<2->{
+		\begin{table}[]
+			\centering
+			\begin{tabular}{llllll}
+				$\exists x\cdot \exists y \cdot\varphi$  & $\leftrightarrow$ & $\exists x\cdot$ & $(\varphi[-\infty/ y])$ &  & $\vee$ \\
+				&  &  & $(\varphi[\dfrac{1}{x}/ y]$ & $\wedge x\neq 0)$ & $\vee$ \\
+				&   &   &$(\varphi[1+\epsilon/ y])$ &   &$\vee$   \\
+				&  &  &$(\varphi[-1+\epsilon/ y])$   &   & 
+			\end{tabular}
+		\end{table}
+	}
+\end{frame}
+
+
+\begin{frame}{Virtual Substitution Rules}
+	\begin{enumerate}
+		\item Substitution of Square Root Expressions
+		\item Substitution of Infinitesimal Expressions
+		\item Substitution of a Minus Infinity
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Substitution of Square Root Expression}
+	\begin{itemize}
+	\item<1-> A square root expression has following form:\newline
+	$$ {\color{red}k=\frac{u+q\sqrt{r}}{s}} \hspace{2mm} \text{ with } u, q, r, s \text{ polynomials.}$$
+	\item<2-> Assume, $p(x)=0$ and test candidate is $\frac{u+q\sqrt{r}}{s}$
+	\visible<3->{
+		\item Substitute $x$ by $\frac{u+q\sqrt{r}}{s}$ in $p(x)=0$
+		\item Transform the result to {\color{red}$\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$} where $u^{\prime}, q^{\prime},s^{\prime}$ are polynomials.
+		\item<4-> $\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$\\
+		\visible<5->{$\Longleftrightarrow u^{\prime}+q^{\prime}\sqrt{r} = 0$\\}
+		\visible<6->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ }\wedge \text{ } \mid u^{\prime}\mid=\mid q^{\prime}\sqrt{r}\mid$}
+		\visible<7->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ } \wedge \text{ } {u^{\prime}}^{2} - {q^{\prime}}^{2}\sqrt{r} = 0$}
+	}
+	\end{itemize}
+\end{frame}
+\begin{frame}{Substitution of Infinitesimal Expressions}
+	\begin{itemize}
+		\item <1-> Assume $p(x) < 0$ and test candidate is $e + \epsilon$
+		\item <2-> After substitution:
+		\begin{table}[]
+			\centering
+			\begin{tabular}{llll}
+				$(p<0)[e+\epsilon/ x]$  &= {\only<2>{\color{blue}}$\underbrace{((p<0)[e/ x])}\limits_{\text{Case 1}}$} & $\vee$ &  \\
+				 & {\only<3>{\color{blue}}$\underbrace{((p=0)[e/ x]\wedge(p^{\prime}<0)[e/ x])}\limits_{\text{Case 2}}$}  & $\vee$ & \\
+				 &{\only<4>{\color{blue}}$\underbrace{((p=0)[e/ x]\wedge(p^{\prime}=0)[e/ x]\wedge (p^{\prime\prime}<0[e/ x])}\limits_{\text{Case 3}} $} & $\vee$  & 
+			\end{tabular}
+		\end{table}
+	\only<2>{\input{case1.tex}}
+	\only<3>{\input{case2.tex}}
+	\visible<4>{\input{case3.tex}}
+	\end{itemize}
+\end{frame}
+\begin{frame}{Substitution of a Minus Infinity}
+	\begin{itemize}
+		\item Assume $p(x)=ax^{2}+bx+c < 0$ and test candidate is $-\infty$
+			\begin{table}[]
+				\centering
+				\begin{tabular}{llll}
+					$p(x)<0[-\infty/ x]$ & = & $\underbrace{{\only<1>{\color{red}}a<0}}\limits_{\only<1>{\color{blue}}Case 1}$ & $\wedge$ \\
+					 &  & $\underbrace{\only<2>{\color{red}}a=0 \wedge b>0}\limits_{\only<2>{\color{blue}}Case 2}$ & $\wedge$ \\
+					 & & $\underbrace{\only<3>{\color{red}}a=0 \wedge b=0 \wedge c<0}\limits_{\only<3>{\color{blue}}Case 3}$ &
+				\end{tabular}
+			\end{table}
+	\end{itemize}
+\only<1>{\input{infi1.tex}}
+\only<2>{\input{infi2.tex}}
+\visible<3>{\input{infi3.tex}}
+\end{frame}
+\begin{frame}{Example}
+$\exists x \cdot \exists y \cdot ((xy-1=0)\wedge y^{2}-1<0)$ \newline\newline
+Elimination of $y$: \newline\newline
+ 1.Test candidate: $-\infty$
+	\begin{table}[]
+		\centering
+		\begin{tabular}{llll}
+			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[-\infty/y]$ & \\ \\
+			& $\wedge$ & {\color{red}$(y^{2}-1<0)[-\infty/y]$} $)$&  \\ \\
+			\visible<2->{$\Leftrightarrow\exists x \cdot$  & $($ & \color{blue}$(x=0$ $\wedge -1 = 0)$ &  \\ \\}
+			\visible<3->{& $\wedge$ &{\color{red}$(1<0\vee(1=0 \wedge 0>0)\vee(1=0\wedge 0=0 \wedge -1<0))$}$)$ & \\ \\}
+			\visible<4->{$\Leftrightarrow\exists x \cdot$  &  &$(\mathbf{false})$ &  \\ \\}
+		\end{tabular}
+	\end{table}
+\end{frame}
+\begin{frame}{Example}
+	$\exists x \cdot \exists y \cdot ((xy-1=0)\wedge y^{2}-1<0)$ \newline
+	Elimination of $y$: \newline
+	2.Test candidate: $\frac{1}{x} \hspace{2mm}if\hspace{2mm} x \neq 0$
+	\begin{table}[]
+		\centering
+		\begin{tabular}{llll}
+			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[\frac{1}{x}/y]$ & \\
+			& $\wedge$ & {\color{red}$(y^{2}-1<0)[\frac{1}{x}/y]$} &  \\
+			& $\wedge$ & {\color{green}$x\neq 0$} $)$&  \\
+			$\Leftrightarrow\exists x \cdot$  & $($ & \color{blue}$(0=0)$ & \\
+			& $\wedge$ & {\color{red}$((1>0)\wedge 1-x^{2}<0\vee(1<0 \wedge 1-x^{2}<0))$} &  \\
+			& $\wedge$ & {\color{green}$x\neq 0$} $)$&  \\
+			$\Leftrightarrow\exists x \cdot$ & $($ & {\color{red}$(1-x^{2}<0)$} &  \\ 
+			& $\wedge$ & {\color{green}$x\neq 0$} $)$&  \\
+		\end{tabular}
+	\end{table}
+\end{frame}
+\begin{frame}{Example}
+	$\exists x \cdot$  $($ {\only<1>{\color{red}$1-x^{2}<0$}} {\only<2->{\color{black}$\mathbf{true}$}}
+	 $\wedge$ \only<1-2>{{\only<2>{\color{red}}$x\neq 0$}} {\only<3>{\color{black}$\mathbf{true}$}} $)$\newline\newline
+	 Elimination of $x$:\newline\newline
+	 1. Test candidate: $-\infty$
+		 \begin{table}[]
+		 	\centering
+		 	\begin{tabular}{ll}
+		 		\only<1>{
+		 		  & $(1-x_{2}<0)[-\infty/x]$   \\ \\
+		 		= & $(-1<0 \vee (-1=0 \wedge 0>0)\vee(-1=0 \wedge 0=0 \wedge 1<0))$ \\ \\
+		 		= & $\mathbf{true}$}
+		 		\only<2->{
+	 			& $(x\neq 0)[-\infty/x]$   \\ \\
+	 			= & $(1 \neq 0 \vee 0 \neq 0)$ \\ \\
+	 			= & $\mathbf{true}$}
+		 	\end{tabular}
+		 \end{table}
+\end{frame}
+\begin{frame}{Example: Flow Chart}
+	$\varphi:=((\underbrace{xy-1}\limits_{p_{1}}=0)\wedge \underbrace{y^{2}-1}\limits_{p_{2}}<0)$
+	\input{directedTree.tex}
+\end{frame}
+\end{document}
+
+

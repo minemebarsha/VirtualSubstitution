@@ -13,11 +13,11 @@ Let $p(x) = ax^{2} + bx + c$ is a quadratic of variable $x$ where $p \in P$ and 
 	&& \text{, if $ a = 0 \wedge b = 0$}
 \end{alignat}
 Here $x_{0}, x_{1}, x_{2}$ and $x_{3}$ are the real zeros of $p$ in $x$ and the conditions on the right are called side conditions.\newline
-The constraint $p(x) \sim 0$ has solution intervals $(-\infty, x_{0})$ or $(x_{i}, x_{i+1})$or $[x_{i}, x_{i}]$or $([x_{2}, x_{2}]$ or $(x_{2}, \infty)$ where $0\leq i\leq 1$. So, the endpoints of these intervals are $-\infty, x_{i}$ and $x_{2}$ which are the real zeros. As the real zeros are symbolic and we cannot order them to pick the solutions. Hence, we choose a left endpoint of each left closed interval, a left endpoint of each left opened interval plus an infinitesimal $\epsilon$ as sample solutions shown in the Figure \ref{fig:testcandidates}. These sample solutions are called test candidates.
+The constraint $p(x) \sim 0$ has solution intervals $(-\infty, x_{0})$ or $(x_{i}, x_{i+1})$or $[x_{i}, x_{i}]$or $[x_{2}, x_{2}]$ or $(x_{2}, \infty)$ where $0\leq i\leq 1$. So, the endpoints of these intervals are $-\infty, x_{i}$ and $x_{2}$ which are the real zeros. As the real zeros are symbolic and we cannot order them to pick the solutions. Hence, we choose a left endpoint of each left closed interval, a left endpoint of each left opened interval plus an infinitesimal $\epsilon$ as sample solutions shown in the Figure \ref{fig:testcandidates}. These sample solutions are called test candidates.
 \begin{center}
 	\input{testcan.tex}
 \end{center}
-To solve a non-linear real arithmetic formula $\varphi$, first we have to choose a variable $x, x\in p(x)$ to eliminate and then compute all possible test candidates of $x$. $\varphi$ is satisfiable if there is a test candidate $t\in T$ such that $\varphi [t\backslash\backslash x] = p_1[t\backslash\backslash x] \wedge \cdots p_n[t\backslash\backslash x] \wedge side Condition$ is satisfiable, but direct substitution is not possible as test candidates are not algebraic $(\sqrt\text{ }, \epsilon, -\infty, \%,\ldots )$. Thus, virtual substitution rules need to be introduced.
+To solve a non-linear real arithmetic formula $\varphi$, first we have to choose a variable $x, x\in p(x)$ to eliminate and then compute all possible test candidates of $x$. $\varphi$ is satisfiable if there is a test candidate $t\in T$ such that $(\varphi [t\backslash\backslash x] = p_1[t\backslash\backslash x] \wedge \cdots p_n[t\backslash\backslash x]) \wedge $(side Condition) is satisfiable, but direct substitution is not possible as test candidates are not algebraic $(\sqrt\text{ }, \epsilon, -\infty, \%,\ldots )$. Thus, virtual substitution rules need to be introduced.
 \subsection{Virtual Substitution}
 Virtual substitution is a procedure to eliminate a quantified variable. Let $\varphi$ be a quantifier-free real arithmetic formula where $x\in p(x)$ and $p(x) \sim 0, \sim \in \{=,<,>,\leq,\geq,\neq\}$ is a constraint of   $\varphi^\mathbb{R}$. Degree of $x$ in $p(x)$ must be at most two. Then, quantifier elimination by virtual substitution is based on the following equivalence:
 $$ \exists x\varphi \Longleftrightarrow \bigvee\limits_{t\in T(x,\varphi)}  (\varphi [t\backslash\backslash x] \wedge C_t)$$
@@ -35,7 +35,7 @@ Let a quadratic equation $p(x) = p_{1}x^{2} + p_{2}x + p_{3} = 0$ in the variabl
 	&& \text{, if $ p_{1} = 0 \wedge p_{2}\neq 0$} \\
 	&x_{1} = \frac{-p_{2} + \sqrt{p_{2}^{2}-4p_{1}p_{3}}}{2p_{1}}\qquad      
 	&& \text{, if $ p_{1} \neq 0 \wedge p_{2}^{2}-4p_{1}p_{3}\geq 0$} \\
-	&x_{2} = \frac{-b - \sqrt{p_{2}^{2}-4p_{1}p_{3}}}{2a}\qquad      
+	&x_{2} = \frac{-p_{2} - \sqrt{p_{2}^{2}-4p_{1}p_{3}}}{2a}\qquad      
 	&& \text{, if $ p_{1} \neq 0 \wedge p_{2}^{2}-4p_{1}p_{3}\geq 0$} \\
 	&x_{3} = -\infty\qquad      
 	&& \text{, if $ p_{1} = 0 \wedge p_{2} = 0 \wedge p_{3}=0$}
@@ -54,11 +54,11 @@ Here $x_{0}, x_{1}$ and $x_{2}$ are the symbolic zeros of $x$ in $p(x)$.
 				\hline
 				Equation No.& p & q & r & s \\
 				\hline
-				$2.1$ & $-p_{3}$ & $0$ & $1$ & $p_{2}$ \\
+				$3.5$ & $-p_{3}$ & $0$ & $1$ & $p_{2}$ \\
 				\hline
-				$2.2$ & $-p_{2}$ & $1$ & $p_{2}^{2}-4p_{1}p_{3}$ & $2p_{1}$ \\
+				$3.6$ & $-p_{2}$ & $1$ & $p_{2}^{2}-4p_{1}p_{3}$ & $2p_{1}$ \\
 				\hline
-				$2.3$ & $-p_{2}$ & $-1$ & $p_{2}^{2}-4p_{1}p_{3}$ & $2p_{1}$ \\
+				$3.7$ & $-p_{2}$ & $-1$ & $p_{2}^{2}-4p_{1}p_{3}$ & $2p_{1}$ \\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -84,7 +84,7 @@ So, for $x$ in $p(x)$, $SqrtEx=\{-\frac{p_{3}}{p_{2}}, \frac{-p_{2}\pm \sqrt{p_{
 \right.$$
 Here weak means $\{=,\leq,\geq\}$.\newline
 And the side condition of each test candidate $t$ is defined by:
-		$$
+$$
 C_t
 \quad = \quad 
 \left\{
@@ -122,21 +122,21 @@ Each side condition of the test candidates confirms that each test candidate ind
 	Now, we will put all the test candidates of $x$ in $\varphi$ and get following three
 	real-arithmetic formulas without $x$:
 	\begin{alignat}{2}
-		&\varphi_{1} = \varphi [x_{0}\backslash\backslash x] = (y^{3} + 2y = 0) \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(y = 0)}\limits_{p_{6}} \wedge (1 \neq 0) \qquad      
+		&\varphi_{1} = \varphi [x_{0}\backslash\backslash x] = (y^{3} + 2y = 0) \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{2}} \wedge \underbrace{(y = 0)}\limits_{p_{6}} \wedge (1 \neq 0) \qquad      
 		\\
-		&\varphi_{2} = \varphi [x_{1}\backslash\backslash x] = p_{3} \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} \qquad      
+		&\varphi_{2} = \varphi [x_{1}\backslash\backslash x] = p_{3} \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{2}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} \qquad      
 		\\
-		&\varphi_{3} = \varphi [x_{2}\backslash\backslash x] = p_{4} \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} \qquad      
+		&\varphi_{3} = \varphi [x_{2}\backslash\backslash x] = p_{4} \wedge \underbrace{(y^{2} - 2 < 0)}\limits_{p_{2}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} \qquad      
 		&&
 	\end{alignat}
 Where 
 $$p_{3} = (\underbrace{(\frac{-1 + \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 + \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero of $x$ in $p_{1}$}}=0)$$ 
 and 
 $$p_{4} = (\underbrace{(\frac{-1 - \sqrt{1-4y^{2}}}{2y})^{2}y+(\frac{-1 - \sqrt{1-4y^{2}}}{2y})+y}\limits_{\text{it will be always 0 as it is a real zero of $x$ in $p_{1}$}}=0)$$
-We alreday eliminated $x$ and now, we will eliminate $y$ from $\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$. We have shown all the test candidates of y in $p_{5}, p_{6}, p_{7}$ and $p_{8}$ in the Table \ref{testcandidates} where we marked the valid and invalid side conditions.
+We alreday eliminated $x$ and now, we will eliminate $y$ from $\varphi_{1}$,$\varphi_{2}$,$\varphi_{3}$. We have shown all the test candidates of y in $p_{2}, p_{6}, p_{7}$ and $p_{8}$ in the Table \ref{testcandidates} where we marked the valid and invalid side conditions.
 \end{example}
 Note that there is a polynomial $y^{3}+2y = 0$ in $\varphi_{1}$ where $y$ has a degree of $3$. We did not consider this polynomial to construct test candidate as the degree is higher than $2$. If the constructed test candidates for $y$ in other polynomials of $\varphi_{1}$ satisfy $y^{3}+2y = 0$, $\varphi $ is satisfiable. $\varphi_{2}$ and $\varphi_{3}$ have become same as $p_{3}$ and $p_{4}$ are already satisfied. Further, we will consider $\varphi_{2}$ and $\varphi_{3}$ as $\varphi_{4}$:
-$$\varphi_{4} = \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} $$
+$$\varphi_{4} = \underbrace{(y^{2} - 2 < 0)}\limits_{p_{2}} \wedge \underbrace{(y \neq 0)}\limits_{p_{7}} \wedge \underbrace{(1-4y^{2}\geq 0)}\limits_{p_{8}} $$
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[]
@@ -144,7 +144,7 @@ $$\varphi_{4} = \underbrace{(y^{2} - 2 < 0)}\limits_{p_{5}} \wedge \underbrace{(
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		& Test Candidate & Side Condition & \begin{tabular}[c]{@{}c@{}}Validation\\ of\\ Side Condition\end{tabular} \\ \hline
-		\multirow{3}{*}{$p_{5}$} & $\sqrt{2}+\epsilon$ & $1\neq 0 \wedge 8 \geq 0$ & \checkmark \\ \cline{2-4} 
+		\multirow{3}{*}{$p_{2}$} & $\sqrt{2}+\epsilon$ & $1\neq 0 \wedge 8 \geq 0$ & \checkmark \\ \cline{2-4} 
 		& $-\sqrt{2}+\epsilon$ & $1\neq 0 \wedge 8 \geq 0$ & \checkmark \\ \cline{2-4} 
 		& $2+\epsilon$ & $1=0 \wedge 0\neq 0$ & \textbf{x} \\ \cline{2-4} 
 		& $-\infty$ & true & \checkmark \\ \hline
@@ -193,12 +193,12 @@ Where $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative of
 	\item In case 3 $p<0[t\backslash\backslash x]$ holds if and only if for $x = t$ in $p$, $p^{\prime}$ are equal to $0$, but $p^{\prime\prime}$ evaluates to $0$. It means, there must be a value from $t$ to positive $x$-direction for which $p<0$.
 \end{itemize}
 \begin{example}
-	Let us consider our example formula $\varphi = (x^{2}y + x + y = 0) \wedge (y^{2} -2 < 0)$ for which now we have $\varphi_{1}$ and $\varphi_{4}$. Both of this formula contain $p_{5}=(y^{2}-2<0)$ and we have the test candidates $\pm\sqrt{2}+\epsilon$ for $y$ in $p_{5}$. 
+	Let us consider our example formula $\varphi = (x^{2}y + x + y = 0) \wedge (y^{2} -2 < 0)$ for which now we have $\varphi_{1}$ and $\varphi_{4}$. Both of this formula contain $p_{2}=(y^{2}-2<0)$ and we have the test candidates $\pm\sqrt{2}+\epsilon$ for $y$ in $p_{2}$. 
 	\begin{itemize}
 		\item For $t=\sqrt{2}+\epsilon$,
 		$$(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y<0)[\sqrt{2}\backslash\backslash x])}\limits_{\text{Case 2}}\text{ }\vee$$
 		$$\underbrace{((y^{2}-2=0)[\sqrt{2}\backslash\backslash y]\wedge(2y=0)[\sqrt{2}\backslash\backslash y]\wedge (2<0[\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 3}}\text{ }\wedge \text{ }\underbrace{1\neq 0 \text{ }\wedge \text{ }8 \geq 0}\limits_{side \text{ }condition} $$
-		Here $y^{2}-2\nless 0$ for $(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]$. Because, from the Figure \ref{fig:epsilon} we can see that case 1 does not hold for $\sqrt{2}$. If we move to the right of $\sqrt{2}$, $p_{5}$ is increasing instead of decreasing. So, case 2 and case 3 also do not hold.
+		Here $y^{2}-2\nless 0$ for $(y^{2}-2<0)[\sqrt{2}+\epsilon\backslash\backslash y]$. Because, from the Figure \ref{fig:epsilon} we can see that case 1 does not hold for $\sqrt{2}$. If we move to the right of $\sqrt{2}$, $p_{2}$ is increasing instead of decreasing. So, case 2 and case 3 also do not hold.
 		\item For $t=-\sqrt{2}+\epsilon$,
 		$$(y^{2}-2<0)[-\sqrt{2}+\epsilon\backslash\backslash y]=\underbrace{((y^{2}-2<0)[-\sqrt{2}\backslash\backslash y])}\limits_{\text{Case 1}} \text{ }\vee\text{ }$$
 		
@@ -212,12 +212,12 @@ Where $p^{\prime}$ and $p^{\prime\prime}$ are the first and second derivative of
 \end{example}
 \subsubsection{Substitution of a Minus Infinity}
 	Let $t = -\infty$ be a test candidate for $x$ in $p<0$. $t$ cannot have any other values rather than $-\infty$. If we substitute $x = t$ in $p<0$, we get the following formula:
-	$$p<0[-\infty\backslash\backslash x] = (a<0) \text{ } \vee \text{ } (a=0 \wedge b>0) \text{ } \vee \text{ } (a=0 \wedge b=0 \wedge c<0) $$
-	Where $p=ax^{2}+bx+c$ and $a, b, c$ do not contain $x$.
+	$$p<0[-\infty\backslash\backslash x] = (p_{1}<0) \text{ } \vee \text{ } (p_{1}=0 \wedge p_{2}>0) \text{ } \vee \text{ } (p_{1}=0 \wedge p_{2}=0 \wedge p_{3}<0) $$
+	Where $p=p_{1}x^{2}+p_{2}x+p_{3}$ and $p_{1}, p_{2}, p_{3}$ do not contain $x$.
 	\begin{example}
-		Assume $\varphi_{4} = (y^{2} - 2 < 0)\wedge (y \neq 0) \wedge (1-4y^{2}\geq 0)$ which we get from our example formula $\varphi$. By substituting $y=-\infty$ in $p_{5}=(y^{2} - 2 < 0)$ of $\varphi_{4}$ we get the following:
+		Assume $\varphi_{4} = (y^{2} - 2 < 0)\wedge (y \neq 0) \wedge (1-4y^{2}\geq 0)$ which we get from our example formula $\varphi$. By substituting $y=-\infty$ in $p_{2}=(y^{2} - 2 < 0)$ of $\varphi_{4}$ we get the following:
 			$$ y^{2} - 2 < 0 [-\infty\backslash\backslash y] = (1<0)\text{ } \vee\text{ } (1=0 \wedge 0 > 0) \text{ } \vee \text{ } (1=0 \wedge 0=0 \wedge -2<0) $$
-			Here $a=1, b=0$ and $c=-2$.
+			Here $p_{1}=1, p_{2}=0$ and $p_{3}=-2$. As $1 \leq 0, 1 = 0, 0 \geq 0,$ and $1=0$ are invalid, $y=-\infty$ cannot be a solution for $p_{2}$
 			\begin{center}
 				\input{ro_1.tex}
 			\end{center}

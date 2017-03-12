@@ -15,7 +15,7 @@ Where $a_{0}, a_{1},\ldots a_{d}\in R$.\newline
 The degree of $P(x)$ is the maximal $0\leq k\leq d$ such that $a_{k}\neq 0$.\newline.
 \begin{example}
 	The following expression is a non-linear quantifier-free real arithmetic formula where the set of all polynomials in $\varphi$ is $P=\{p_{1}, p_{2}, p_{3}\}$:
-	$$\varphi = (\underbrace{(x^{2}+2x+4z\leq 0)}\limits_{p_{1}}\vee \underbrace{(yx^{2}+6y^{3}x+4z= 0)}\limits_{p_{2})}) \wedge \underbrace{(6y^{3}x+4z< 0)}\limits_{p_{3}} $$
+	$$\varphi = (\underbrace{(x^{2}+2x+4z\leq 0)}\limits_{p_{1}}\vee \underbrace{(yx^{2}+6y^{3}x+4z= 0)}\limits_{p_{2}}) \wedge \underbrace{(6y^{3}x+4z< 0)}\limits_{p_{3}} $$
 	Where, $x^{2}, x, yx^{2}, y^{3}x$ and $z$ are the monomials, $2x, 6y^{3}x$ and $4z$ are the terms. Degree of $p_{1}(x), p_{2}(x)$ and $p_{3}(x)$ are $2, 2$ and $1$, respectively
 \end{example} 
 We are interested in solving non-linear real arithmetic formula where variables $x_{1},x_{1},\ldots,x_{n}$ are bounded in $\exists x\ldots\exists x_{n}\varphi$ with $\varphi$ quantifier-free. To find solutions we will apply virtual substitution (introduced in Section $3.2$) by eliminating all bound variables $x$ in $\varphi$ recursively.

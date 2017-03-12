@@ -1,0 +1,21 @@
+\begin{figure}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.37]
+\draw[->,color=black] (-2.168471363392429,0.) -- (12.584619272493104,0.);
+\foreach \x in {-2.,-1.,1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0.,-3.1400559790672617) -- (0.,3.8982350562185024);
+\foreach \y in {-3.,-2.,-1.,1.,2.,3.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-2.168471363392429,-3.1400559790672617) rectangle (12.584619272493104,3.8982350562185024);
+\draw [rotate around={-49.891220728189076:(9.594297875672694,-8.045228486576265)},line width=1.6pt,color=qqqqff] (9.594297875672694,-8.045228486576265) ellipse (7.9584566410639725cm and 5.503377563211322cm);
+\draw (0.09523037438894916,3.937264396525078) node[anchor=north west] {$p(x)$};
+\draw (10.220345429631731,0.04734014596972948) node[anchor=north west] {$x$};
+\begin{scriptsize}
+\draw [fill=qqqqff] (13.297974890303022,-12.442118759909956) circle (2.5pt);
+\draw [fill=qqqqff] (3.069022236526169,-4.442211425716545) circle (2.5pt);
+\draw [fill=black] (7.493801250044723,0.) circle (2.5pt);
+\draw[color=black] (7.588863713251441,0.2359819574515106) node {e};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}

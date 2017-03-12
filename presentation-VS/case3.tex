@@ -1,0 +1,22 @@
+\begin{figure}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.25]
+\draw[->,color=black] (-4.3,0.) -- (18.7,0.);
+\foreach \x in {-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0.,-4.84) -- (0.,6.3);
+\foreach \y in {-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.,6.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-4.3,-4.84) rectangle (18.7,6.3);
+\draw [line width=1.2pt,color=qqqqff] (7.86,-7.06) circle (7.028769451333569cm);
+\draw (0.2,6.32) node[anchor=north west] {$p(x)$};
+\draw (17.38,0.01) node[anchor=north west] {$x$};
+\begin{scriptsize}
+\draw [fill=qqqqff] (7.86,-7.06) circle (2.5pt);
+\draw [fill=qqqqff] (13.42,-11.36) circle (2.5pt);
+\draw [fill=black] (7.8004362960399245,-0.031482932711156764) circle (2.5pt);
+\draw[color=black] (7.94,0.33) node {e};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}

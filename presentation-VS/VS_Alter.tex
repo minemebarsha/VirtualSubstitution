@@ -1,0 +1,98 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+
+
+\documentclass{beamer}
+
+%
+% DO NOT USE THIS FILE AS A TEMPLATE FOR YOUR OWN TALKS¡!!
+%
+% Use a file in the directory solutions instead.
+% They are much better suited.
+%
+
+
+% Setup appearance:
+
+\usetheme{Darmstadt}
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+
+
+% Standard packages
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage[normalem]{ulem}               % to striketrhourhg text
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon}
+\usepackage{pdfcomment}
+\usepackage{multirow}
+
+
+% Setup TikZ
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+\usepackage{pgf}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+% Author, Title, etc.
+
+\title[]
+{%
+Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
+}
+
+\author[Zaman]
+{
+	Author: Aklima Zaman
+	\\ Supervision: Erika \'{A}brah\'{a}m
+}
+
+\institute[]
+{
+	Theory of Hybrid Systems - Informatik 2 - RWTH-Aachen
+}
+
+\date[WABI 2006]
+{Satisfiability Seminar, Winter-16/17}
+
+
+
+% The main document
+
+\begin{document}
+
+
+\begin{frame}{Substitution of Square Root Expression}
+	\begin{itemize}
+		\item $p(x) = ax^{2} + bx + c$ then, $x_{1,2} = \frac{-b \pm \sqrt{b^{2}-4ac}}{2a}$, if $a\neq0\wedge b^{2}-4ac\geq 0$
+		\item $x_{1,2}$ has the form $\frac{u+q\sqrt{r}}{s}$:
+		$u=-b$, $q=\pm 1$, $r = b^{2}-4ac$ and $s=2a$
+		\\
+		\item Example:
+		$p(x) = yx^{2}+x$\\
+		$$(yx^{2}+x= 0)[{\color{red}\frac{-1+\sqrt{1-8y}}{2y}}/x]$$
+		$$\Longleftrightarrow y(\frac{-1+\sqrt{1-8y}}{2y})^{2}+(\frac{-1+\sqrt{1-8y}}{2y})= 0$$
+		$\Longleftrightarrow \frac{(\overbrace{64y^{2}-14y-1}\limits^{u^{\prime}})+\overbrace{2}\limits^{q^{\prime}}\sqrt{1-8y}\longrightarrow r}{\underbrace{2y}\limits_{s^{\prime}}}=0$
+		$\Longleftrightarrow\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}$
+		
+	\end{itemize}
+\end{frame}
+\end{document}
+
+
