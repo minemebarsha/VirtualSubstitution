@@ -1,6 +1,6 @@
-\begin{figure}
+
 \definecolor{qqqqff}{rgb}{0.,0.,1.}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.3]
 \draw[->,color=black] (-2.805871167303091,0.) -- (7.3094000308945235,0.);
 \foreach \x in {-2.5,-2.,-1.5,-1.,-0.5,0.5,1.,1.5,2.,2.5,3.,3.5,4.,4.5,5.,5.5,6.,6.5,7.}
 \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
@@ -9,11 +9,10 @@
 \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
 \clip(-2.805871167303091,-1.7750366504961292) rectangle (7.3094000308945235,3.0506791504077055);
 \draw [domain=-2.805871167303091:7.3094000308945235] plot(\x,{(--1.--1.*\x)/1.});
-\draw (-1.6195121996132475,0.5544809744143578) node[anchor=north west] {$\xi$};
-\draw (0.03068636446661013,3.0774391271225143) node[anchor=north west] {$p(x)$};
+\draw (-2.5195121996132475,1.2544809744143578) node[anchor=north west] {$x_{1}$};
+\draw (-2.03068636446661013,3.0774391271225143) node[anchor=north west] {$p$};
 \draw (6.756360512121814,-0.01779817955702487) node[anchor=north west] {$x$};
 \begin{scriptsize}
 \draw [fill=qqqqff] (-1.,0.) circle (2.5pt);
 \end{scriptsize}
 \end{tikzpicture}
-\end{figure}
