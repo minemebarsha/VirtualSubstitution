@@ -48,6 +48,7 @@
 \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
 \usepackage{pgf}
 \usepackage{mathrsfs}
+\usepackage{appendixnumberbeamer}
 \usetikzlibrary{arrows}
 
 % Author, Title, etc.
@@ -98,38 +99,38 @@ Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
 
 \begin{frame}{Motivation}
 	\begin{itemize}
-		\item Other related methods
+		\item \color{blue} Other related methods
 			\begin{itemize}
-				\item interval constraint propagation
+				\item \color{green}interval constraint propagation
 				\item cylindrical algebraic decomposition
 			\end{itemize}
-		\item Virtual substitution
+		\item \color{blue} Virtual substitution
 			\begin{itemize}
-				\item applicable only to sub-language
+				\item \color{green}applicable only to sub-language
 				\item eliminates quantified variables up to degree 4
 			\end{itemize}
 	\end{itemize}
 \end{frame}
 \begin{frame}{Flow Chart of Virtual Substitution}
 	\begin{center}
-		\includegraphics[scale=0.28]{FlowChart-2.pdf}
+		\includegraphics[scale=0.28]{FlowChart-1.pdf}
 	\end{center}
 \end{frame}
 \begin{frame}{Real Arithmetic Formula}
 	\begin{itemize}
 		\item <1-> Real arithmetic (RA) formula has the following syntax:\newline
-		{\only<2>{\color{blue}}\textbf{terms:}\hspace{12mm}$t\hspace{0mm}:=\hspace{3mm}0\hspace{3mm}|\hspace{3mm}1\hspace{3mm}|\hspace{3mm}x\hspace{3mm}|\hspace{3mm}t+t\hspace{3mm}|\hspace{3mm}t - t\hspace{3mm}|\hspace{3mm}t \cdot t$\newline}
-		{\only<3>{\color{blue}}\textbf{constraints:}\hspace{0mm} $c\hspace{0mm}:=\hspace{2mm}t<t$\newline}
-		{\only<4>{\color{blue}}\textbf{formulas:}\hspace{4mm} $\varphi\hspace{0mm}:=\hspace{3mm}c\hspace{3mm}|\hspace{3mm}\neg\varphi\hspace{3mm}|\hspace{3mm}\varphi\wedge\varphi\hspace{3mm}|\hspace{3mm}\exists x\cdot\varphi$\newline}
+		{\only<2>{\color{blue}}\textbf{polynomials:}\hspace{1mm}$t\hspace{0mm}:=\hspace{3mm}0\hspace{3mm}|\hspace{3mm}1\hspace{3mm}|\hspace{3mm}x\hspace{3mm}|\hspace{3mm}t+t\hspace{3mm}|\hspace{3mm}t - t\hspace{3mm}|\hspace{3mm}t \cdot t$\newline}
+		{\only<3>{\color{blue}}\textbf{constraints:}\hspace{1mm} $c\hspace{0mm}:=\hspace{2mm}t<t$\newline}
+		{\only<4>{\color{blue}}\textbf{formulas:}\hspace{5mm} $\varphi\hspace{0mm}:=\hspace{3mm}c\hspace{3mm}|\hspace{3mm}\neg\varphi\hspace{3mm}|\hspace{3mm}\varphi\wedge\varphi\hspace{3mm}|\hspace{3mm}\exists x\cdot\varphi$\newline}
 		\item <5->Polynomial {\only<5>{\color{blue}}$p(x)\in Z[x_{1}\dots,x_{n}][x]$} normal form:
 		{\only<5>{\color{blue}}$$ p(x) = {\only<7>{\color{blue}}a_{d}}{\only<6>{\color{blue}}x^{d}} + {\only<7>{\color{blue}}a_{d-1}}{\only<6>{\color{blue}}x^{d-1}} + \ldots + {\only<7>{\color{blue}}a_{0}}{\only<6>{\color{blue}}x^{0}} $$}
 		Example:
-		$$\varphi = (\underbrace{({\only<6>{\color{blue}}x^{2}}+{\only<7>{\color{blue}}2}{\only<6>{\color{blue}}x}+{\only<7>{\color{blue}}4}{\only<7>{\color{blue}}z})}\limits_{{\only<8>{\color{blue}}p_{1}}}\leq 0\vee \underbrace{(y{\only<6>{\color{blue}}x^{2}}+{\only<7>{\color{blue}}6y^{3}}{\only<6>{\color<6>{blue}}x}+{\only<7>{\color{blue}}4}{\only<7>{\color{blue}}z})}\limits_{{\only<8>{\color{blue}}p_{2}}}= 0)$$
+		$$\varphi = (\underbrace{({\only<6>{\color{blue}}x^{2}}+{\only<7>{\color{blue}}2}{\only<6>{\color{blue}}x}+{\only<7>{\color{red}}4}{\only<7>{\color{red}}z})}\limits_{{\only<8>{\color{blue}}p_{1}}}\leq 0\vee \underbrace{({\only<7>{\color{blue}}y}{\only<6>{\color{blue}}x^{2}}+{\only<7>{\color{blue}}6y^{3}}{\only<6>{\color<6>{blue}}x}+{\only<7>{\color{red}}4}{\only<7>{\color{red}}z})}\limits_{{\only<8>{\color{blue}}p_{2}}}= 0)$$
 	\end{itemize}
 \end{frame}
 \begin{frame}{Flow Chart of Virtual Substitution}
 	\begin{center}
-		\includegraphics[scale=0.28]{FlowChart-3.pdf}
+		\includegraphics[scale=0.28]{FlowChart-2.pdf}
 	\end{center}
 \end{frame}
 \begin{frame}{Virtual Substitution}
@@ -161,14 +162,14 @@ Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
 	\begin{center}
 		\input{lzros.tex}
 	\end{center}
-	$\xi = -b/c$\newline
+	$x = -c/b$\newline
 	}
 	\only<3>{
 	$p(x) = ax^{2} + bx + c$ \hspace{4mm} side condition: $a\neq0\wedge b^{2}-4ac\geq 0$
 	\begin{center}
 		\input{qzeros.tex}
 	\end{center}
-	$\xi_{1} = \frac{-b - \sqrt{b^{2}-4ac}}{2a}$, $\xi_{2} = \frac{-b + \sqrt{b^{2}-4ac}}{2a}$\newline
+	$x_{1} = \frac{-b - \sqrt{b^{2}-4ac}}{2a}$, $x_{2} = \frac{-b + \sqrt{b^{2}-4ac}}{2a}$\newline
 }
 \end{frame}
 \begin{frame}{Compute Test Candidates}
@@ -205,59 +206,27 @@ Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
 			4. & $p_{2}<0$  & $-1+\epsilon$ \\ \hline
 		\end{tabular}
 	\end{table}}
-\only<2>{\includegraphics[scale=0.28]{FlowChart-1.pdf}}
+\only<2>{\includegraphics[scale=0.28]{FlowChart-3.pdf}}
 	\only<3->{
 		\begin{table}[]
 			\centering
 			\begin{tabular}{llllll}
-				$\exists x\cdot \exists y \cdot\varphi$  & $\leftrightarrow$ & $\exists x\cdot$ & $(\varphi[-\infty/ y])$ &  & $\vee$ \\
-				&  &  & $(\varphi[\dfrac{1}{x}/ y]$ & $\wedge x\neq 0)$ & $\vee$ \\
-				&   &   &$(\varphi[1+\epsilon/ y])$ &   &$\vee$   \\
-				&  &  &$(\varphi[-1+\epsilon/ y])$   &   & 
+				$\exists x\cdot \exists y \cdot\varphi$  & $\leftrightarrow$ & $\exists x\cdot$ & $(\varphi[-\infty// y])$ &  & $\vee$ \\
+				&  &  & $(\varphi[\dfrac{1}{x}// y]$ & $\wedge x\neq 0)$ & $\vee$ \\
+				&   &   &$(\varphi[1+\epsilon// y])$ &   &$\vee$   \\
+				&  &  &$(\varphi[-1+\epsilon// y])$   &   & 
 			\end{tabular}
 		\end{table}
 	}
 \end{frame}
 
-\begin{frame}{Substitution of Square Root Expression}
-		\visible<1->{ A square root expression has following form:\newline
-		$$ {\color{red}k=\frac{u+q\sqrt{r}}{s}} \hspace{2mm} \text{ with } u, q, r, s \text{ polynomials.}$$}
-	\visible<2->{Assume, $p(x)=0$ and test candidate is $\frac{u+q\sqrt{r}}{s}$}
-	\visible<2->{}
-	\begin{enumerate}
-	\visible<3->{
-		\item<3-> $(p(x)=0)[\frac{u+q\sqrt{r}}{s}//x]$ to be computed.
-		\item<4-> Transform the result to {\color{red}$\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$} where $u^{\prime}, q^{\prime},s^{\prime}$ are polynomials.
-		\item<5-> $\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$\\
-		\visible<6->{$\Longleftrightarrow u^{\prime}+q^{\prime}\sqrt{r} = 0$\\}
-		\visible<7->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ }\wedge \text{ } \mid u^{\prime}\mid=\mid q^{\prime}\sqrt{r}\mid$}
-		\visible<8->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ } \wedge \text{ } {u^{\prime}}^{2} - {q^{\prime}}^{2}\sqrt{r} = 0$}
-	}
-	\end{enumerate}
-\end{frame}
-\begin{frame}{Substitution of Infinitesimal Expressions}
-
-		\visible <1-> {Assume $p(x) < 0$ and test candidate is $e + \epsilon$}
-		\visible <2-> {
-		\begin{table}[]
-			\centering
-			\begin{tabular}{llll}
-				$(p<0)[e+\epsilon/ x]$  &= {\only<2>{\color{blue}}$\underbrace{((p<0)[e/ x])}\limits_{\text{Case 1}}$} & $\vee$ &  \\
-				 & {\only<3>{\color{blue}}$\underbrace{((p=0)[e/ x]\wedge(p^{\prime}<0)[e/ x])}\limits_{\text{Case 2}}$}  & $\vee$ & \\
-				 &{\only<4>{\color{blue}}$\underbrace{((p=0)[e/ x]\wedge(p^{\prime}=0)[e/ x]\wedge (p^{\prime\prime}<0[e/ x])}\limits_{\text{Case 3}} $} & $\vee$  & 
-			\end{tabular}
-		\end{table}
-	\only<2>{\input{case1.tex}}
-	\only<3>{\input{case2.tex}}
-	\visible<4>{\input{case3.tex}}}
-\end{frame}
 \begin{frame}{Substitution of a Minus Infinity}
 
 		 Assume $(p(x)=ax^{2}+bx+c )< 0$ and test candidate is $-\infty$
 			\begin{table}[]
 				\centering
 				\begin{tabular}{llll}
-					$p(x)<0[-\infty/ x]$ & = & $\underbrace{{\only<1>{\color{red}}a<0}}\limits_{\only<1>{\color{blue}}\text{Case 1}}$ & $\vee$ \\
+					$p(x)<0[-\infty// x]$ & = & $\underbrace{{\only<1>{\color{red}}a<0}}\limits_{\only<1>{\color{blue}}\text{Case 1}}$ & $\vee$ \\
 					 &  & $\underbrace{\only<2>{\color{red}}a=0 \wedge b>0}\limits_{\only<2>{\color{blue}}\text{Case 2}}$ & $\vee$ \\
 					 & & $\underbrace{\only<3>{\color{red}}a=0 \wedge b=0 \wedge c<0}\limits_{\only<3>{\color{blue}}\text{Case 3}}$ &
 				\end{tabular}
@@ -268,19 +237,99 @@ Solving Non-Linear Real Arithmetic Formulas with Virtual Substitution%
 \visible<3>{\input{infi3.tex}}
 \end{frame}
 \begin{frame}{Example}
-$\exists x \cdot \exists y \cdot ((xy-1=0)\wedge y^{2}-1<0)$ \newline\newline
-Elimination of $y$: \newline\newline
- 1.Test candidate: $-\infty$
+$\exists x \cdot \exists y \cdot ((xy-1=0)\wedge y^{2}-1<0)$
+{\color{cyan}
+ \begin{table}[]
+ 	\begin{tabular}{lllll}
+ 		$p(x)<0[-\infty// x]$& $=$  & $(a<0)$ & $\vee$ &$(a=0\wedge b>0)$  \\
+ 		&  &  &$\vee$ & $(a=0\wedge b>0\wedge c<0)$
+ 	\end{tabular}
+ \end{table}
+}
+ Elimination of $y$: \hspace{2mm} Test candidate: $-\infty$
 	\begin{table}[]
 		\centering
 		\begin{tabular}{llll}
-			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[-\infty/y]$ & \\ \\
+			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[-\infty//y]$ & \\ \\
 			& $\wedge$ & {\color{red}$(y^{2}-1<0)[-\infty/y]$} $)$&  \\ \\
 			\visible<2->{$\Leftrightarrow\exists x \cdot$  & $($ & \color{blue}$(x=0$ $\wedge -1 = 0)$ &  \\ \\}
-			\visible<3->{& $\wedge$ &{\color{red}$(1<0\vee(1=0 \wedge 0>0)\vee(1=0\wedge 0=0 \wedge -1<0))$}$)$ & \\ \\}
+			\visible<3->{& $\wedge$ &{\color{red}
+					\begin{tabular}{lll}
+					$(1<0$	& $\vee$ &$(1=0 \wedge 0>0)$  \\
+						&$\vee$  & $(1=0\wedge 0=0 \wedge -1<0))$\color{black})$$
+					\end{tabular}
+					%$(1<0\vee(1=0 \wedge 0>0)\vee(1=0\wedge 0=0 \wedge -1<0))$
+				} & \\ \\}
 			\visible<4->{$\Leftrightarrow\exists x \cdot$  &  &$(\mathbf{false})$ &  \\ \\}
 		\end{tabular}
 	\end{table}
+\end{frame}
+\begin{frame}{Example: Search Tree}
+	$\varphi:=((\underbrace{xy-1}\limits_{p_{1}}=0)\wedge \underbrace{y^{2}-1}\limits_{p_{2}}<0)$
+	\input{directedTree.tex}
+\end{frame}
+\begin{frame}{Outlook}
+	\begin{itemize}
+		\item Implemented in \color{blue}SMT-RAT and \color{blue}Redlog
+		\item Strengths:
+		\begin{itemize}
+			\item Better than Fourier Motzkin
+			\item Efficient then CAD
+		\end{itemize}
+	\item Weaknesses:
+	\begin{itemize}
+		\item Unable to handle the formulas of degree > 4
+		\item Incomplete
+		\item Exponentially Complex
+	\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}{Reference}
+\begin{thebibliography}{9}
+\bibitem{weispfenning} 
+V. Weispfenning,
+\textit{Quantifier elimination for real algebra - the quadratic case and beyond}.
+Appl. Algebra Eng. Commun. Comput, 1997.
+
+\bibitem{loss} 
+R. Loss, V. Weispfenning,
+\textit{Applying linear quantifier elimination}.
+The computer Journal 36 (1993), pp. 450-462.
+\end{thebibliography}
+\end{frame}
+\appendix
+\section{More}
+\begin{frame}{Substitution of Square Root Expression}
+	\visible<1->{ A square root expression has following form:\newline
+		$$ {\color{red}k=\frac{u+q\sqrt{r}}{s}} \hspace{2mm} \text{ with } u, q, r, s \text{ polynomials.}$$}
+	\visible<2->{Assume, $p(x)=0$ and test candidate is $\frac{u+q\sqrt{r}}{s}$}
+	\visible<2->{}
+	\begin{enumerate}
+		\visible<3->{
+			\item<3-> $(p(x)=0)[\frac{u+q\sqrt{r}}{s}//x]$ to be computed.
+			\item<4-> Transform the result to {\color{red}$\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$} where $u^{\prime}, q^{\prime},s^{\prime}$ are polynomials.
+			\item<5-> $\frac{u^{\prime}+q^{\prime}\sqrt{r}}{s^{\prime}}=0$\\
+			\visible<6->{$\Longleftrightarrow u^{\prime}+q^{\prime}\sqrt{r} = 0$\\}
+			\visible<7->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ }\wedge \text{ } \mid u^{\prime}\mid=\mid q^{\prime}\sqrt{r}\mid$}
+			\visible<8->{$\Longleftrightarrow u^{\prime}q^{\prime}\leq 0 \text{ } \wedge \text{ } {u^{\prime}}^{2} - {q^{\prime}}^{2}r = 0$}
+		}
+	\end{enumerate}
+\end{frame}
+\begin{frame}{Substitution of Infinitesimal Expressions}
+	
+	\visible <1-> {Assume $p(x) < 0$ and test candidate is $e + \epsilon$}
+	\visible <2-> {
+		\begin{table}[]
+			\centering
+			\begin{tabular}{llll}
+				$(p<0)[e+\epsilon// x]$  &= {\only<2>{\color{blue}}$\underbrace{((p<0)[e// x])}\limits_{\text{Case 1}}$} & $\vee$ &  \\
+				& {\only<3>{\color{blue}}$\underbrace{((p=0)[e// x]\wedge(p^{\prime}<0)[e// x])}\limits_{\text{Case 2}}$}  & $\vee$ & \\
+				&{\only<4>{\color{blue}}$\underbrace{((p=0)[e// x]\wedge(p^{\prime}=0)[e// x]\wedge (p^{\prime\prime}<0[e// x])}\limits_{\text{Case 3}} $} & $\vee$  & 
+			\end{tabular}
+		\end{table}
+		\only<2>{\input{case1.tex}}
+		\only<3>{\input{case2.tex}}
+		\visible<4>{\input{case3.tex}}}
 \end{frame}
 \begin{frame}{Example}
 	$\exists x \cdot \exists y \cdot ((xy-1=0)\wedge y^{2}-1<0)$ \newline\newline
@@ -289,8 +338,8 @@ Elimination of $y$: \newline\newline
 	\begin{table}[]
 		\centering
 		\begin{tabular}{llll}
-			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[\frac{1}{x}/y]$ & \\
-			& $\wedge$ & {\color{red}$(y^{2}-1<0)[\frac{1}{x}/y]$} &  \\
+			$\hspace{4mm}\exists x \cdot$  & $($ & \color{blue}$(xy-1=0)[\frac{1}{x}//y]$ & \\
+			& $\wedge$ & {\color{red}$(y^{2}-1<0)[\frac{1}{x}//y]$} &  \\
 			& $\wedge$ & {\color{green}$x\neq 0$} $)$&  \\
 			\visible<2->{$\Leftrightarrow\exists x \cdot$  & $($ & \color{blue}$(0=0)$ & \\}
 			\visible<3->{& $\wedge$ & {\color{red}$((1>0)\wedge 1-x^{2}<0\vee(1<0 \wedge 1-x^{2}<0))$} &  \\}
@@ -302,31 +351,22 @@ Elimination of $y$: \newline\newline
 \end{frame}
 \begin{frame}{Example}
 	$\exists x \cdot$  $($ {\only<1>{\color{red}$1-x^{2}<0$}} {\only<2->{\color{black}$\mathbf{true}$}}
-	 $\wedge$ \only<1-2>{{\only<2>{\color{red}}$x\neq 0$}} {\only<3>{\color{black}$\mathbf{true}$}} $)$\newline\newline
-	 Elimination of $x$:\newline\newline
-	 1. Test candidate: $-\infty$
-		 \begin{table}[]
-		 	\centering
-		 	\begin{tabular}{ll}
-		 		\only<1>{
-		 		  & $(1-x_{2}<0)[-\infty/x]$   \\ \\
-		 		= & $(-1<0 \vee (-1=0 \wedge 0>0)\vee(-1=0 \wedge 0=0 \wedge 1<0))$ \\ \\
-		 		= & $\mathbf{true}$}
-		 		\only<2->{
-	 			& $(x\neq 0)[-\infty/x]$   \\ \\
-	 			= & $(1 \neq 0 \vee 0 \neq 0)$ \\ \\
-	 			= & $\mathbf{true}$}
-		 	\end{tabular}
-		 \end{table}
-\end{frame}
-\begin{frame}{Flow Chart of Virtual Substitution}
-	\begin{center}
-		\includegraphics[scale=0.28]{FlowChart.pdf}
-	\end{center}
-\end{frame}
-\begin{frame}{Example: Search Tree}
-	$\varphi:=((\underbrace{xy-1}\limits_{p_{1}}=0)\wedge \underbrace{y^{2}-1}\limits_{p_{2}}<0)$
-	\input{directedTree.tex}
+	$\wedge$ \only<1-2>{{\only<2>{\color{red}}$x\neq 0$}} {\only<3>{\color{black}$\mathbf{true}$}} $)$\newline\newline
+	Elimination of $x$:\newline\newline
+	1. Test candidate: $-\infty$
+	\begin{table}[]
+		\centering
+		\begin{tabular}{ll}
+			\only<1>{
+				& $(1-x_{2}<0)[-\infty//x]$   \\ \\
+				= & $(-1<0 \vee (-1=0 \wedge 0>0)\vee(-1=0 \wedge 0=0 \wedge 1<0))$ \\ \\
+				= & $\mathbf{true}$}
+			\only<2->{
+				& $(x\neq 0)[-\infty//x]$   \\ \\
+				= & $(1 \neq 0 \vee 0 \neq 0)$ \\ \\
+				= & $\mathbf{true}$}
+		\end{tabular}
+	\end{table}
 \end{frame}
 \end{document}
 
